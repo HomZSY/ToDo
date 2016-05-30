@@ -14,13 +14,13 @@ $(function(){
 		}else{
 			i=0;
 		}
-		$(".pic li").eq(i).animate({opacity:"show"},10).siblings()
-						  .animate({opacity:"hide"},10);
+		$(".pic li").eq(i).animate({opacity:1},10).siblings()
+						  .animate({opacity:0},10);
 				    //eq为遍历，对eq指定的那个元素（从0开始）进行操作
 				    //siblings() 默认拿和它自己相同的兄弟元素，即为选出所有的$(".pic li")
 		$(".title_div .titlel").animate({opacity:1},500)
 							   .animate({opacity:0.1});
-	$(".title_div .titler").animate({opacity:0.1},500)
-						   .animate({opacity:1});
+		$(".title_div .titler").animate({opacity:0.1},500)
+							   .animate({opacity:1});
 	}
 })
