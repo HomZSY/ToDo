@@ -245,8 +245,6 @@ var backWards = function () {
                 setTimeout(function() {
                     location.reload(true);
                 }, 1500);
-
-
             }
         });
     });
