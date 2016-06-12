@@ -8,7 +8,10 @@ a {
 }
 
  
-li  {list-style:none;} /*去掉li前面默认的点*/
+body {
+	overflow-y: hidden; /* 去掉竖直滚动条 */
+}
+li {list-style:none;} /*去掉li前面默认的点*/
 
 .title_div {
 	width: 250px;
