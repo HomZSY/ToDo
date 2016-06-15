@@ -1,66 +1,68 @@
 html,
 body,
 div,
-ul,li.
+i,
 a {
 	margin: 0;
 	padding: 0;
 }
-
- 
 body {
 	overflow-y: hidden; /* 去掉竖直滚动条 */
 }
-li {list-style:none;} /*去掉li前面默认的点*/
 
-.title_div {
+.title_div{
+	position: fixed;
+	top: 20%;
+	left: 50%;
+	margin: -50px 0 0 -125px;
 	width: 250px;
 	height: 100px;
-	margin: 40% auto 3%;
 }
-.title_div .titlel {
+.title_div .titlel{
+	float: left;
 	width: 80px;
 	height: 100px;
-	float: left;
 	background-image: url(../img/index/titlel.jpg);
 	background-size: cover;
 }
-.title_div .titler {
+.title_div .titler{
+	float: right;	
 	width: 170px;
-	height: 100px;
-	float: right;	 
+	height: 100px; 
 	background-image: url(../img/index/titler.jpg);
 	background-size: cover;
 }
-.scroll_div {
-	width:160px; height:160px; margin:auto;
+
+.kick {
+	position: fixed;
+	top: 55%;
+	left: 50%;
+	margin: -125px 0 0 -125px;
+	width: 250px;
+	height: 250px;
+	background: url(../img/index/kick.jpg);
+	background-position: 0 0; 
+
+	animation: kick .8s steps(4) infinite;
 }
-.scroll_div .pic {
-	width:160px; height:160px; 
-	overflow:hidden; /*元素溢出则隐藏*/
-	position:relative; 
-	float:left;
+
+@keyframes kick {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -1000px 0; 
+	}
 }
-.scroll_div .pic li {
-	width:160px; height:160px; 
-	position:absolute; 
-	top:0; left:0; 
-	display:none; /*一开始是隐藏的*/
-	background-size: cover; /*让背景图片自适应div*/
-}
-.scroll_div .pic .l {background-image: url(../img/index/left.jpg);}
-.scroll_div .pic .lc {background-image: url(../img/index/leftcenter.jpg);}
-.scroll_div .pic .rc {background-image: url(../img/index/rightcenter.jpg);}
-.scroll_div .pic .r {background-image: url(../img/index/right.jpg);}
 
 
-.logo {
-	width: 50px;
-	height: 50px;
-	float: right;
+.logo{
 	position: fixed;
 	bottom: 10px;
 	right: 10px;
+	float: right;
+	width: 50px;
+	height: 50px;
 	background-size: cover;
-	background-image:url(../img/index/logo.png); 
+	background-image: url(../img/index/logo.png); 
 }
