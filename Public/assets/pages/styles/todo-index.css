@@ -10,6 +10,7 @@ body {
 	overflow-y: hidden; /* 去掉竖直滚动条 */
 }
 
+/* 点鸡两个字 */
 .title_div{
 	position: fixed;
 	top: 20%;
@@ -33,6 +34,7 @@ body {
 	background-size: cover;
 }
 
+/* 鸡踢蛋的动画 */
 .kick {
 	position: fixed;
 	top: 55%;
@@ -54,8 +56,32 @@ body {
 		background-position: -1000px 0; 
 	}
 }
+@-moz-keyframes kick {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -1000px 0; 
+	}
+}
+@-webkit-keyframes kick {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -1000px 0; 
+	}
+}
+@-o-keyframes kick {
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: -1000px 0; 
+	}
+}
 
-
+/* 图标 */
 .logo{
 	position: fixed;
 	bottom: 10px;
@@ -63,6 +89,6 @@ body {
 	float: right;
 	width: 50px;
 	height: 50px;
-	background-size: cover;
 	background-image: url(../img/index/logo.png); 
+	background-size: cover;
 }
