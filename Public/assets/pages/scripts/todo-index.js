@@ -6,9 +6,7 @@ $(function(){
 	}
 	outPlay(); //一定需要这一句话，这是方法的执行
 	out_fun = function(){
-		$(".title_div .titlel").animate({opacity:1},500)
-							   .animate({opacity:0.1});
-		$(".title_div .titler").animate({opacity:0.1},500)
-							   .animate({opacity:1});
+		$(".title_div .titlel").fadeToggle("slow");
+		$(".title_div .titler").fadeToggle('slow');
 	}
 })
