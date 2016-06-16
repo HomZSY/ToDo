@@ -46,6 +46,9 @@ body {
 	background-position: 0 0; 
 
 	animation: kick .8s steps(4) infinite;
+	-moz-animation: kick .8s steps(4) infinite;
+	-webkit-animation: kick .8s steps(4) infinite;
+	-o-animation: kick .8s steps(4) infinite;
 }
 
 @keyframes kick {
