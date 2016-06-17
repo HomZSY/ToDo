@@ -1,19 +1,16 @@
-function delayer(){
-	window.location.href = $.U('User/login');
-}
-function strlength(str) {  
-	var strl = 0;
-	var l = str.length;
-	for (var i = 0; i < l; i++) {
-		//ȫ���ַ�
-		if (str.charCodeAt(i) < 0 ||  str.charCodeAt(i) > 255)
-			strl = strl + 2;
-		else
-			strl++;
-	}
-	return strl;
-}
-$(function(){
+var user = function (){
+	function strlength (str) { //统计字符个数(一个汉字算2个)
+		var strl = 0;
+		console.log(str);
+		var l = str.length;
+		for (var i = 0; i < l; i++) {
+			if (str.charCodeAt(i) < 0 ||  str.charCodeAt(i) > 255)
+				strl = strl + 2;
+			else
+				strl++;
+		}
+		return strl;
+	};
 	$('.btn').on('click',function(){
 		event.preventDefault();
 		var username = $('#username').val();
@@ -47,4 +44,4 @@ $(function(){
 
 		});
 	});
-});
+}();
