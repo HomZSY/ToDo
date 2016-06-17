@@ -1,7 +1,7 @@
 function delayer(){
 	window.location.href = $.U('User/login');
 }
-function strlength(str) {  //统计字符个数(一个汉字算2个)
+function strlength(str) {  
 	var strl = 0;
 	var l = str.length;
 	for (var i = 0; i < l; i++) {
@@ -21,8 +21,8 @@ $(function(){
 		var account = $("#account").val();
 		var password = $("#password").val();
 		var cpassword = $("#cpassword").val();
-		var str = /^\w+$/;  //由数字、26个英文字母或者下划线组成的字符串
-		var abc = /[\u4e00-\u9fa5\w]+$/; //由数字、26个英文字母、中文或者下划线组成的字符串
+		var str = /^\w+$/;  
+		var abc = /[\u4e00-\u9fa5\w]+$/; 
 		$.post($.U('User/doRegister'),{userName:username,namelen:strlength(username),abcname:abc.test(username),sex:sex,
 			account:account,accountlen:strlength(account),straccount:str.test(account),password:password,
 			passwordlen:strlength(password),cPassWord:cpassword},function(data){
@@ -37,6 +37,9 @@ $(function(){
 				$('.cpasswordtip').html(data.info);
 			}else{
 				$('.result').html(data.info);
+				if(data.status == 8){
+					location.href = $.U('User/login');
+				}
 			}
 			setTimeout(function(){
 				location.reload();
