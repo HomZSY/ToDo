@@ -10,6 +10,12 @@ body {
 	overflow-y: hidden; /* 去掉竖直滚动条 */
 }
 
+/* 登录的名字 */
+.hello {
+	margin-top: 20px;
+    font-size: larger;
+}
+
 /* 点鸡两个字 */
 .title_div{
 	position: fixed;
@@ -27,6 +33,7 @@ body {
 	background-size: cover;
 }
 .title_div .titler{
+	display: none;
 	float: right;	
 	width: 170px;
 	height: 100px; 
