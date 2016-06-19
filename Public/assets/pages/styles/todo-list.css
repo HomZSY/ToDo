@@ -4,7 +4,7 @@ body{
 .page-body{
     margin-top:50px;
 }
-.clear-fix{ clear:both}
+.clear-fix{ clear:both; }
 .page-body .egg-close{
     background: url(../img/list/egg-close.jpg) no-repeat;
     background-size: 100%;
