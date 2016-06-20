@@ -3,6 +3,16 @@
 Primary style
 
 -------------------------------- */
+html,
+body,
+a,
+nav,
+section,
+header,
+ul,li {
+  margin: 0;
+  padding: 0;
+}
 *, *::after, *::before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
