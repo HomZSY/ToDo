@@ -405,7 +405,6 @@ xnavigation
 .cd-nav em {
   width: 100%;
   left: 0;
-  /*top: calc(50% + 15px);*/
   color: #5c4b51;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
