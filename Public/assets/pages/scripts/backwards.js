@@ -1,6 +1,4 @@
-/**
- * Created by Sameen on 2015/11/3.
- */
+
 var	aux		= {
         // navigates left / right
         navigate	: function( dir, $el, $wrapper, opts, cache ) {
