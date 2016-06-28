@@ -1,6 +1,4 @@
-/**
- * Created by ZQX on 2015/9/20.
- */
+
 var DoList = function(){
 
     var loading = function(){
