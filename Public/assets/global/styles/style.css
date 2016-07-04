@@ -202,9 +202,9 @@ xnavigation
   transition: transform 0.4s 0s, box-shadow 0s 0s;
 }
 .cd-nav-container header {
+  position: relative;
   padding: 1.5em 0 0 6.25%;
   height: 68px;
-  position: relative;
 }
 .cd-nav-container header span{
   font-family: "Microsoft YaHei", 寰蒋闆呴粦, "MicrosoftJhengHei", 鍗庢枃缁嗛粦, STHeiti, MingLiu, Arial, Helvetica, sans-serif;
