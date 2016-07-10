@@ -19,9 +19,9 @@ var Calendar = function() {
             var m = date.getMonth();
             var y = date.getFullYear();
 
-            var h = {};
-            $('table .fc-header').css({width:width});
-            $('#calendar').css({height:height,width:width}).addClass('mobile');
+            var h = {}; 
+            $('table .fc-header').css({width: width});
+            $('#calendar').css({height: height,width: width}).addClass('mobile');
             h = {
                 left: 'prev,next',
                 center: 'title',

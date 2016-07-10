@@ -81,8 +81,8 @@ Main Components
 }
 .cd-nav-trigger span::before, .cd-nav-trigger span:after {
   /* upper and lower lines of the menu icon */
-  content: '';
   position: absolute;
+  content: '';
   top: 0;
   right: 0;
   width: 100%;
@@ -207,18 +207,11 @@ xnavigation
   height: 68px;
 }
 .cd-nav-container header span{
-  font-family: "Microsoft YaHei", 寰蒋闆呴粦, "MicrosoftJhengHei", 鍗庢枃缁嗛粦, STHeiti, MingLiu, Arial, Helvetica, sans-serif;
+  font-family: "Microsoft YaHei", "MicrosoftJhengHei", STHeiti, MingLiu, Arial, Helvetica, sans-serif;
   font-size: 20px;
   font-weight: 500;
 }
-.cd-nav-container h3 {
-  font-size: 1.6rem;
-  font-weight: bold;
-  font-family: "Lora", serif;
-  text-transform: uppercase;
-  color: #5c4b51;
-}
-@media only screen and (min-width: 700px) {
+/*@media only screen and (min-width: 700px) {
   .cd-nav-container {
     width: 100%;
   }
@@ -226,7 +219,7 @@ xnavigation
     height: 116px;
     padding-top: 3em;
   }
-}
+}*/
 
 .cd-close-nav {
   /* 'X' close icon */
@@ -292,15 +285,13 @@ xnavigation
   width: 100%;
 }
 .cd-nav::after {
+  display: table;
   clear: both;
   content: "";
-  display: table;
 }
 .cd-nav li {
-  /* 68px is the navigation header height  and the menu items will be allocated in 3 rows */
-  /*height: calc((100vh - 68px)/2);*/ /*calc()鎸囧畾鍏冪礌鐨勯暱搴�,vh鏄皢瑙嗗彛鍒嗘垚100娈�*/
-
   min-height: 120px;
+  width: 50% !important;
   border: 1px solid #ffffff;
   border-top: none;
   border-left: none;

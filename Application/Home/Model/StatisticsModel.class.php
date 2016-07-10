@@ -1,8 +1,4 @@
 <?php
-/*
-author zsy
-time 2015.11.6
-*/
 namespace Home\Model;
 use Think\Model;
 class StatisticsModel extends BaseModel {

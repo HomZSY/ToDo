@@ -6,8 +6,8 @@
 <block name="page-body">
     <div class="body">
         <div class="body-accum">
-            <div class="prop"><strong>累积：孵蛋数 / 下蛋数 | 孵化率</strong></div>
-            <div class="cont">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sum['finish']}&nbsp;&nbsp;&nbsp;{$sum['egg']}&nbsp; &nbsp;&nbsp;{$sum['hatch']*100|round=###,2}%</div>
+            <div class="prop"><strong>累积：孵蛋数/下蛋数|孵化率</strong></div>
+            <div class="cont">&emsp;&emsp;&emsp;&emsp;{$sum['finish']}&emsp;&emsp;&emsp;{$sum['egg']}&emsp; &emsp;{$sum['hatch']*100|round=###,2}%</div>
         </div>
         <div class="body-select1">
             <select>
@@ -28,18 +28,18 @@
                 </tr>
                 <volist name="week" id="vo">
                     <tr class="tr1">
-                        <td>&nbsp;{$key}&nbsp;</td>
-                        <td>&nbsp;{$vo['finish']}&nbsp;</td>
-                        <td>&nbsp;&nbsp;{$vo['egg']}&nbsp;</td>
-                        <td>&nbsp;{$vo['hatch']*100|round=###,2} %</td>
+                        <td>&emsp;{$key}&emsp;</td>
+                        <td>&emsp;{$vo['finish']}&emsp;</td>
+                        <td>&emsp;&emsp;{$vo['egg']}&emsp;</td>
+                        <td>&emsp;{$vo['hatch']*100|round=###,2} %</td>
 
                     </tr>
                 </volist>
                 <tr class="sum tr1 sum1">
-                    <td>合计&nbsp;</td>
-                    <td>&nbsp;{$weeksum['finish']}&nbsp;</td>
-                    <td>&nbsp;&nbsp;{$weeksum['egg']}&nbsp;</td>
-                    <td>&nbsp;{$weeksum['hatch']*100|round=###,2}%</td>
+                    <td>合计&emsp;</td>
+                    <td>&emsp;{$weeksum['finish']}&emsp;</td>
+                    <td>&emsp;&emsp;{$weeksum['egg']}&emsp;</td>
+                    <td>&emsp;{$weeksum['hatch']*100|round=###,2}%</td>
                 </tr>
             </table>
         </div>

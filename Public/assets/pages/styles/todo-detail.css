@@ -1,4 +1,4 @@
-.portlet  {
+.portlet {
     margin-top: 0px;
     margin-bottom: 25px;
     padding: 0px;
@@ -15,7 +15,7 @@
     margin-bottom: 10px;
     min-height: 30px;
 }
-.portlet-title > .caption{
+.portlet-title > .caption {
     color: #fff;
     padding:11px 0 9px 2px;
     float: left;
@@ -24,14 +24,14 @@
     line-height: 10px;
     font-weight: 300;
 }
-h5{
+h5 {
     margin:0 0 0 10px;
 }
-a{
+a {
     text-decoration: none;
 }
 
-.add-form .form-control{
+.add-form .form-control {
     margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -40,19 +40,19 @@ a{
     font-size: 14px;
 }
 
-.red{
+.red {
     color:#d84a38;
 }
-.orange{
+.orange {
     color:#EB7F01;
 }
-.yellow{
+.yellow {
     color:#f7ca18;
 }
-.green{
+.green {
     color:#35aa47;
 }
-.chose{
+.chose {
     width: 20px;
     height: 20px;
     background-color:  #cecece;
@@ -60,36 +60,36 @@ a{
     bottom: 20px;
     right: 0px;
 }
-.chose > i{
+.chose > i {
     font-size: 10px;
     color: #fff;
     text-align: center;
 }
 
-.portlet-buttom{
+.portlet-buttom {
     margin-left: 45%;
 }
-.portlet-buttom i{
+.portlet-buttom i {
     font-size: 40px;
 }
-.modal-main{
+.modal-main {
     border: 1px solid ;
     border-radius:2px;
 }
 
 /*iphone 5*/
 @media screen and (max-width: 365px) {
-    .portlet-buttom{
+    .portlet-buttom {
         margin-left: 36%;
     }
-    .category{
+    .category {
         width: 68%;
         margin-left: 1% !important;
     }
-    .add-form input{
+    .add-form input {
         width: 68%;
     }
-    .add-form textarea{
+    .add-form textarea {
         margin-left: 73px;
         margin-top: -10px;
         margin-bottom: 6px;
@@ -98,18 +98,18 @@ a{
     }
 }
 /*iphone 6*/
-@media screen and (min-width: 365px) and (max-width: 1600px){
-    .portlet-buttom{
+@media screen and (min-width: 365px) and (max-width: 1600px) {
+    .portlet-buttom {
         margin-left: 54%;
     }
-    .category{
+    .category {
         width: 78%;
         margin-left: 1% !important;
     }
-    .add-form input{
+    .add-form input {
         width: 78%;
     }
-    .add-form textarea{
+    .add-form textarea {
         margin-left: 73px;
         margin-top: -10px;
         margin-bottom: 6px;

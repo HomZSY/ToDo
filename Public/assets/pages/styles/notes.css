@@ -1,20 +1,20 @@
 @charset "UTF-8";
-div{
+div {
 	font-family:"Microsoft Yahei";
 }
-.clear{
+.clear {
 	clear:both;
 }
 
-.main-page-note{
+.main-page-note {
 	width:100%;
 	margin-top:50px;
 }
-.main-page-note .group-note{
+.main-page-note .group-note {
 	width:96%;
 	margin:0 auto;
 }
-.main-page-note .group-note .note{
+.main-page-note .group-note .note {
 	width:50%;
 	height:200px;
 	margin:5px 0;
@@ -22,7 +22,7 @@ div{
 	float:left;
 	position:relative;	
 }
-.main-page-note .group-note .note .note-icon-circle{
+.main-page-note .group-note .note .note-icon-circle {
 	width:14px;
 	height:14px;
 	border-radius:50%;
@@ -31,7 +31,7 @@ div{
 	top:9px;
 	left:-4px;
 }
-.main-page-note .group-note .note span.note-content{
+.main-page-note .group-note .note span.note-content {
 	display:inline-block;
 	color:#333;
 	height:128px;
@@ -40,7 +40,7 @@ div{
 	text-indent:1em !important;
 	overflow:hidden;
 }
-.main-page-note .group-note .note span.note-time{
+.main-page-note .group-note .note span.note-time {
 	display:block;
 	width:100%;
 	line-hieght:20px;
@@ -51,16 +51,16 @@ div{
 	bottom:20px;
 }
 
-.main-page-note .group-note .note.paper2 span.note-time{
+.main-page-note .group-note .note.paper2 span.note-time {
 	padding-right:30px;
 	bottom:28px;
 }
-.main-page-note .group-note .note.paper4 span.note-time{
+.main-page-note .group-note .note.paper4 span.note-time {
 	padding-left:20px;
 	padding-right:0;
 	text-align:left;
 }
-.main-page-note #note-details{
+.main-page-note #note-details {
 	display:none;
 	width:80%;
 	min-height:400px;
@@ -72,7 +72,7 @@ div{
 	z-index:2;
 }
 
-.main-page-note #note-details .note-time{
+.main-page-note #note-details .note-time {
 	color:#666;
 	line-height:40px;
 	text-align:right;
@@ -83,7 +83,7 @@ div{
 	padding-right:20px;
 	
 }
-.main-page-note #note-details .content{
+.main-page-note #note-details .content {
 	width:100%;
 	min-height:300px;	
 	line-height:25px;
@@ -95,13 +95,13 @@ div{
 	outline:0;
 	padding:10px;
 }
-.main-page-note #note-details .note-edit-tool{
+.main-page-note #note-details .note-edit-tool {
 	line-height:60px;
 	width:100%;
 	text-align:center;
 	margin:0 auto;
 }
-.main-page-note #note-details .note-edit-tool a{
+.main-page-note #note-details .note-edit-tool a {
 	text-decoration:none;
 	width:50%;
 	height:35px;
@@ -113,13 +113,13 @@ div{
 	letter-spacing:4px;
 	float:left;
 }
-.main-page-note #note-details .note-edit-tool a.note-delete{
+.main-page-note #note-details .note-edit-tool a.note-delete {
 	background:#c33;
 }
-.main-page-note #note-details .note-edit-tool a.note-close{
+.main-page-note #note-details .note-edit-tool a.note-close {
 	background:#363;
 }
-.main-page-note #note-edit{
+.main-page-note #note-edit {
 	display:none;
 	width:100%;
 	height:100%;
@@ -129,7 +129,7 @@ div{
 	left:0;
 	z-index:2;
 }
-.main-page-note #note-edit .note-edit-content{
+.main-page-note #note-edit .note-edit-content {
 	width:80%;
 	height:400px;
 	position:absolute;
@@ -137,7 +137,7 @@ div{
 	margin-top:-200px;
 	left:10%;
 }
-.main-page-note #note-edit  .note-edit-content textarea{
+.main-page-note #note-edit  .note-edit-content textarea {
 	width:100%;
 	height:330px;
 	margin:50px 0 0;
@@ -148,7 +148,7 @@ div{
 	outline:0;
 	overflow-y:auto;
 }
-.main-page-note #note-edit .note-edit-tool{
+.main-page-note #note-edit .note-edit-tool {
 	width:100%;
 	line-height:50px;
 	text-align:center;
@@ -156,7 +156,7 @@ div{
 	bottom:0;
 	left:0;
 }
-.main-page-note #note-edit .note-edit-tool a{
+.main-page-note #note-edit .note-edit-tool a {
 	width:20%;
 	height:35px;
 	color:#eee;
@@ -164,17 +164,17 @@ div{
 	text-align:center;
 	float:left;
 }
-.main-page-note #note-edit .note-edit-tool a.note-close{
+.main-page-note #note-edit .note-edit-tool a.note-close {
 	background:#666;
 }
-.main-page-note #note-edit .note-edit-tool a.note-clear{
+.main-page-note #note-edit .note-edit-tool a.note-clear {
 	background:#363;
 }
-.main-page-note #note-edit .note-edit-tool a.note-paper-style{
+.main-page-note #note-edit .note-edit-tool a.note-paper-style {
 	width:30%;
 	background:#036;
 }
-.main-page-note #note-edit .note-edit-tool a.note-add{
+.main-page-note #note-edit .note-edit-tool a.note-add {
 	width:30%;
 	background:#c33;
 }
@@ -185,15 +185,15 @@ div{
     left: 20px;
 }
 .paper1,
-.paper1.yellow{
+.paper1.yellow {
     background: url('../img/backwards/paper1.png') no-repeat;
     background-size: 100% 100%;
 }
-.paper1.red{
+.paper1.red {
     background: url('../img/backwards/paper1r.png') no-repeat;
     background-size: 100% 100%;
 }
-.paper1.blue{
+.paper1.blue {
     background: url('../img/backwards/paper1b.png') no-repeat;
     background-size: 100% 100%;
 }

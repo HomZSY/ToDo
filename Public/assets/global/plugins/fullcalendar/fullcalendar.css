@@ -3,7 +3,10 @@
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
  */
-
+body {
+	overflow-x: auto;
+	overflow-y: auto; 
+}
 
 .fc {
 	direction: ltr;

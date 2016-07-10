@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sameen
- * Date: 2015/11/3
- * Time: 18:51
- */
 namespace Home\Model;
 use Think\Model;
 class BackwardsModel extends BaseModel{

@@ -2,36 +2,36 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/todo-11-18/Public/assets/pages/img/index/avatar.jpg"/>
+    <link rel="shortcut icon" href="/todo1/todo2/Public/assets/pages/img/index/avatar.jpg"/>
     <title>土豆鸡快</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="author" content="zsy"/>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" href="/todo-11-18/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link href="/todo-11-18/Public/assets/global/styles/reset.css" rel="stylesheet" type="text/css"/>
-        <link href="/todo-11-18/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+    
+        <link href="/todo1/todo2/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-        <link href="/todo-11-18/Public/assets/global/plugins/icon/style.css" rel="stylesheet" type="text/css"/>
+        <link href="/todo1/todo2/Public/assets/global/plugins/icon/style.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE LEVEL PLUGIN STYLES -->
 
     <!-- BEGIN PAGE STYLES -->
         
     <style>
     body{
-    background-image:url("/todo-11-18/Public/assets/pages/img/calendar/back-calendar.png");
+    background-image:url("/todo1/todo2/Public/assets/pages/img/calendar/back-calendar.png");
         height:468px !important;
         width:320px !important;
     }
 
 
     </style>
-    <link rel="stylesheet" href="/todo-11-18/Public/assets/global/plugins/fullcalendar/fullcalendar.css" type="text/css"/>
-    <link rel="stylesheet" href="/todo-11-18/Public/assets/global/plugins/fullcalendar/fullcalendar.print.css" type="text/css" media="print"/>
-    <link rel="stylesheet" href="/todo-11-18/Public/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css" type="text/css">
+    <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/fullcalendar/fullcalendar.css" type="text/css"/>
+    <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/fullcalendar/fullcalendar.print.css" type="text/css" media="print"/>
+    <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.css" type="text/css">
 
 
     <!-- END PAGE STYLES -->
@@ -101,37 +101,37 @@
 <!-- END PAGE-BODY -->
 
 <!-- BEGIN CORE PLUGINS -->
-    <script src="/todo-11-18/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/main.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/main.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN CORE GLOBAL -->
-    <script src="/todo-11-18/Public/assets/global/scripts/public.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/scripts/public.js" type="text/javascript"></script>
 <!-- END CORE GLOBAL -->
 
 <script type="text/javascript">
     /* GLOBAL URL */
-    var _ROOT_ = '/todo-11-18',
-            _PUBLIC_ = '/todo-11-18/Public',
-            _INDEX_ = '/todo-11-18/index.php',
-            _ACTION_ = '/todo-11-18/index.php/Home/Calendar/all',
-            _MODULE_ = '/todo-11-18/index.php/Home',
-            _CONTROLLER_ = '/todo-11-18/index.php/Home/Calendar';
-    window._ROOT_='/todo-11-18';
-    window._APP_='/todo-11-18/index.php';
+    var _ROOT_ = '/todo1/todo2',
+            _PUBLIC_ = '/todo1/todo2/Public',
+            _INDEX_ = '/todo1/todo2/index.php',
+            _ACTION_ = '/todo1/todo2/index.php/Home/Calendar/all',
+            _MODULE_ = '/todo1/todo2/index.php/Home',
+            _CONTROLLER_ = '/todo1/todo2/index.php/Home/Calendar';
+    window._ROOT_='/todo1/todo2';
+    window._APP_='/todo1/todo2/index.php';
     window._ACTION_='<?php echo U("");?>';
-    window._SELF_='<?php echo urldecode("/todo-11-18/index.php/Home/Calendar/all");?>';
+    window._SELF_='<?php echo urldecode("/todo1/todo2/index.php/Home/Calendar/all");?>';
 </script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
     
-    <!--<script src="/todo-11-18/Public/assets/global/plugins/jquery-modal/jquery-modal.js" type="text/javascript"></script>-->
-   <script src="/todo-11-18/Public/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/pages/scripts/calendar.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/pages/scripts/demo.js"></script>
+    <!--<script src="/todo1/todo2/Public/assets/global/plugins/jquery-modal/jquery-modal.js" type="text/javascript"></script>-->
+   <script src="/todo1/todo2/Public/assets/global/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/pages/scripts/calendar.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/pages/scripts/demo.js"></script>
     
 <!-- END PAGE LEVEL SCRIPTS -->
 
@@ -139,7 +139,6 @@
     <script type="text/javascript">
         $(document).ready(function() {
             Calendar.init();
-           Demo.init();
         });
     </script>
 

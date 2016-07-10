@@ -1,11 +1,11 @@
-body{
+body {
     font-size:14px;
 }
-.page-body{
+.page-body {
     margin-top:50px;
 }
-.clear-fix{ clear:both; }
-.page-body .egg-close{
+.clear-fix { clear:both; }
+.page-body .egg-close {
     background: url(../img/list/egg-close.jpg) no-repeat;
     background-size: 100%;
     position: absolute;
@@ -15,7 +15,7 @@ body{
     height: 11%;
     display: none;
 }
-.page-body .list-tip-style{
+.page-body .list-tip-style {
     padding:20px;
 }
 

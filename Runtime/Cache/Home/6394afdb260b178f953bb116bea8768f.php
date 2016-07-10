@@ -2,25 +2,25 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/todo-11-18/Public/assets/pages/img/index/avatar.jpg"/>
+    <link rel="shortcut icon" href="/todo1/todo2/Public/assets/pages/img/index/avatar.jpg"/>
     <title>土豆鸡快</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="author" content="zsy"/>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" href="/todo-11-18/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
-        <link href="/todo-11-18/Public/assets/global/styles/reset.css" rel="stylesheet" type="text/css"/>
-        <link href="/todo-11-18/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+    
+        <link href="/todo1/todo2/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
 
     <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-        <link href="/todo-11-18/Public/assets/global/plugins/icon/style.css" rel="stylesheet" type="text/css"/>
+        <link href="/todo1/todo2/Public/assets/global/plugins/icon/style.css" rel="stylesheet" type="text/css"/>
     <!-- END PAGE LEVEL PLUGIN STYLES -->
 
     <!-- BEGIN PAGE STYLES -->
         
-    <link href="/todo-11-18/Public/assets/pages/styles/todo-statistics.css" rel="stylesheet" type="text/css"/>
+    <link href="/todo1/todo2/Public/assets/pages/styles/todo-statistics.css" rel="stylesheet" type="text/css"/>
 
     <!-- END PAGE STYLES -->
 </head>
@@ -84,8 +84,8 @@
         
     <div class="body">
         <div class="body-accum">
-            <div class="prop"><strong>累积：孵蛋数 / 下蛋数 | 孵化率</strong></div>
-            <div class="cont">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($sum['finish']); ?>&nbsp;&nbsp;&nbsp;<?php echo ($sum['egg']); ?>&nbsp; &nbsp;&nbsp;<?php echo (round($sum['hatch']*100,2)); ?>%</div>
+            <div class="prop"><strong>累积：孵蛋数/下蛋数|孵化率</strong></div>
+            <div class="cont">&emsp;&emsp;&emsp;&emsp;<?php echo ($sum['finish']); ?>&emsp;&emsp;&emsp;<?php echo ($sum['egg']); ?>&emsp; &emsp;<?php echo (round($sum['hatch']*100,2)); ?>%</div>
         </div>
         <div class="body-select1">
             <select>
@@ -103,17 +103,17 @@
                     <th>| 孵化率</th>
                 </tr>
                 <?php if(is_array($week)): $i = 0; $__LIST__ = $week;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><tr class="tr1">
-                        <td>&nbsp;<?php echo ($key); ?>&nbsp;</td>
-                        <td>&nbsp;<?php echo ($vo['finish']); ?>&nbsp;</td>
-                        <td>&nbsp;&nbsp;<?php echo ($vo['egg']); ?>&nbsp;</td>
-                        <td>&nbsp;<?php echo (round($vo['hatch']*100,2)); ?> %</td>
+                        <td>&emsp;<?php echo ($key); ?>&emsp;</td>
+                        <td>&emsp;<?php echo ($vo['finish']); ?>&emsp;</td>
+                        <td>&emsp;&emsp;<?php echo ($vo['egg']); ?>&emsp;</td>
+                        <td>&emsp;<?php echo (round($vo['hatch']*100,2)); ?> %</td>
 
                     </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                 <tr class="sum tr1 sum1">
-                    <td>合计&nbsp;</td>
-                    <td>&nbsp;<?php echo ($weeksum['finish']); ?>&nbsp;</td>
-                    <td>&nbsp;&nbsp;<?php echo ($weeksum['egg']); ?>&nbsp;</td>
-                    <td>&nbsp;<?php echo (round($weeksum['hatch']*100,2)); ?>%</td>
+                    <td>合计&emsp;</td>
+                    <td>&emsp;<?php echo ($weeksum['finish']); ?>&emsp;</td>
+                    <td>&emsp;&emsp;<?php echo ($weeksum['egg']); ?>&emsp;</td>
+                    <td>&emsp;<?php echo (round($weeksum['hatch']*100,2)); ?>%</td>
                 </tr>
             </table>
         </div>
@@ -123,33 +123,33 @@
 <!-- END PAGE-BODY -->
 
 <!-- BEGIN CORE PLUGINS -->
-    <script src="/todo-11-18/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
-    <script src="/todo-11-18/Public/assets/global/plugins/main.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/plugins/main.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN CORE GLOBAL -->
-    <script src="/todo-11-18/Public/assets/global/scripts/public.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/global/scripts/public.js" type="text/javascript"></script>
 <!-- END CORE GLOBAL -->
 
 <script type="text/javascript">
     /* GLOBAL URL */
-    var _ROOT_ = '/todo-11-18',
-            _PUBLIC_ = '/todo-11-18/Public',
-            _INDEX_ = '/todo-11-18/index.php',
-            _ACTION_ = '/todo-11-18/index.php/Home/Statistics/statistics',
-            _MODULE_ = '/todo-11-18/index.php/Home',
-            _CONTROLLER_ = '/todo-11-18/index.php/Home/Statistics';
-    window._ROOT_='/todo-11-18';
-    window._APP_='/todo-11-18/index.php';
+    var _ROOT_ = '/todo1/todo2',
+            _PUBLIC_ = '/todo1/todo2/Public',
+            _INDEX_ = '/todo1/todo2/index.php',
+            _ACTION_ = '/todo1/todo2/index.php/Home/Statistics/statistics',
+            _MODULE_ = '/todo1/todo2/index.php/Home',
+            _CONTROLLER_ = '/todo1/todo2/index.php/Home/Statistics';
+    window._ROOT_='/todo1/todo2';
+    window._APP_='/todo1/todo2/index.php';
     window._ACTION_='<?php echo U("");?>';
-    window._SELF_='<?php echo urldecode("/todo-11-18/index.php/Home/Statistics/statistics");?>';
+    window._SELF_='<?php echo urldecode("/todo1/todo2/index.php/Home/Statistics/statistics");?>';
 </script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
     
-    <script src="/todo-11-18/Public/assets/pages/scripts/todo-statistics.js" type="text/javascript"></script>
+    <script src="/todo1/todo2/Public/assets/pages/scripts/todo-statistics.js" type="text/javascript"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 

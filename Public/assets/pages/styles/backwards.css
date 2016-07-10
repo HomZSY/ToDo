@@ -1,7 +1,7 @@
 @charset "UTF-8";
-.backwards {
-    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Arial, Helvetica, sans-serif;
+.backwards { 
     position: absolute;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
 }
@@ -56,22 +56,22 @@
         /*margin-left: 20px;*/
     }
     .s-day,
-    .s-text{
+    .s-text {
         text-align: center;
     }
-    .s-day{
+    .s-day {
         font-size: 26px;
         color: #000;
         margin-top: 24px;
         font-weight: 800;
     }
-    .s-text{
+    .s-text {
         font-size: 12px;
         color: #383636;
         margin-top: 2px;
         font-weight: 400;
     }
-    .s-day span{
+    .s-day span {
         font-size: 1px;
         background-color: #E63333;
         padding: 0 2px;
@@ -81,7 +81,7 @@
         position: relative;
         top: -4px;
     }
-    .ca-container{
+    .ca-container {
         position:relative;
         width: 310px;
         height: 100px;
@@ -100,7 +100,7 @@
         position: relative;
         left: 6%;
     }
-    .ca-nav span{
+    .ca-nav span {
         width:25px;
         height:38px;
         background:transparent url('../img/backwards/arrows.png') no-repeat top left;
@@ -111,16 +111,16 @@
         cursor:pointer;
         z-index: 3;
     }
-    .ca-nav span.ca-nav-next{
+    .ca-nav span.ca-nav-next {
         background-position:top right;
         left:auto;
         right: -4px;
     }
-    .add-btn img{
+    .add-btn img {
         width: 150px;
 
     }
-    .add-btn{
+    .add-btn {
         position: absolute;
         top: 77%;
         left: 32%;
@@ -130,17 +130,17 @@
         -o-animation: myRotate 1s ease 1s;
         -moz-animation: myRotate 1s ease 1s;
     }
-    .up{
+    .up {
         margin-top: -10px;
     }
-    .error-tip{
+    .error-tip {
          padding: 10px 16px;
          background-color: #78DA78;
          color: #ee5f5b;
          font-size: 16px;
          font-weight: 500;
      }
-    .success-tip{
+    .success-tip {
         padding: 10px 16px;
         background-color: #3CBB64;
         color: #fff;
@@ -200,21 +200,21 @@
         background-size: contain;
     }
     .s-day,
-    .s-text{
+    .s-text {
         text-align: center;
     }
-    .s-day{
+    .s-day {
         font-size: 30px;
         color: #000;
         margin-top: 30px;
         font-weight: 800;
     }
-    .s-text{
+    .s-text {
         font-size: 14px;
         color: #383636;
         margin-top: 6px;
     }
-    .s-day span{
+    .s-day span {
         font-size: 1px;
         background-color: #E63333;
         padding: 0 4px;
@@ -224,7 +224,7 @@
         position: relative;
         top: -4px;
     }
-    .add-btn{
+    .add-btn {
         position: absolute;
         top: 78%;
         left: 34%;
@@ -234,11 +234,11 @@
         -o-animation: myRotate 1s ease 1s;
         -moz-animation: myRotate 1s ease 1s;
     }
-    .add-btn img{
+    .add-btn img {
         width: 150px;
 
     }
-    .ca-container{
+    .ca-container {
         position:relative;
         width: 370px;
         height: 100px;
@@ -257,7 +257,7 @@
         position: relative;
         left: 5%;
     }
-    .ca-nav span{
+    .ca-nav span {
         width:25px;
         height:38px;
         background:transparent url('../img/backwards/arrows.png') no-repeat top left;
@@ -270,12 +270,12 @@
         cursor:pointer;
         z-index: 3;
     }
-    .ca-nav span.ca-nav-next{
+    .ca-nav span.ca-nav-next {
         background-position:top right;
         left:auto;
         right: 6px;
     }
-    .up{
+    .up {
         margin-top: -40px;
     }
     .error-tip {
@@ -295,7 +295,7 @@
 
 }
 
-.ca-nav span:hover{
+.ca-nav span:hover {
     opacity:1.0;
     -webkit-opacity:1.0;
     -moz-opacity: 1.0;
@@ -313,7 +313,7 @@
     overflow: hidden;
 }
 
-.form-control{
+.form-control {
     margin-top: 5px;
 }
 
