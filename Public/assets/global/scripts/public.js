@@ -1,6 +1,3 @@
-/**
- * Created by ZQX on 2015/10/3.
- */
 $.extend({
     /**
      * URL参数解析，默认解析当前URL
