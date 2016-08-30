@@ -7,109 +7,289 @@ button,
 a {
   margin: 0;
   padding: 0;
-}
-body {
-  background-color: #FAFCCF;
-  overflow-y: hidden; /* 去掉竖直滚动条 */
+  border:0;
 }
 
-.logo {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  margin: -70px 0 0 -70px;
-  width: 140px;
-  height: 140px;
-  background: url(../img/index/logo.png) no-repeat;
-  background-size: cover;
+body, html {
+  background-color: #00D9C0; 
+  background-image: linear-gradient(to right, hsla(0,0%,0%,0.05) 50%, transparent 0); /* 只兼容到ie10 */
+  background-size: 120px 100%; /* 只兼容到ie9 */
+  font-family: "Space Mono";
+  color: #555;
+  height:100%;
 }
 
-.login {    
-  position: fixed;
-  top: 40%;
+.container{
+  position:absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%); /* 只兼容到ie9 */
+}
+
+.login {
+  position: relative;
   left: 50%;
   margin: -50px 0 0 -180px;
-  width: 360px;
+  width:400px;
+  transition: all 0.2s ease-out; /* ease-out 以慢速结束的过渡效果 */
+  background: hsla(0,0%,90%, 1);
+  box-shadow: 0 10px 10px -10px hsla(0,0%,0%,0.2); 
+  border-radius: 5px;
   text-align: center;
   font-size: 20px;
 }
-.login .input-group {
-  margin-top: 15px;
-  padding: 0 50px;
-}
-.login .input-group .input-group-addon {
-  font-size: 16px;
-  color: #FAFCCF;
-  background-color: rgba(77, 207, 161, 0.76);
-  border: 1px solid #ccc;
-}
-.login .input-group .form-control {
-  height: 40px;
-  border: 1px solid #ccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+/* 伪响应式适应手机  */
+.S .login {
+	width: 300px;
 }
 
-.login .btn-group {
-  display: table-cell;
-  width: 1%;
-  padding: 0 50px;
+.login-form {
+  background:white;
+  padding: 3em 3em 4em 3em;
+  transition: all 0.2s ease-out;
+  border-radius: 5px;
 }
-.btn-group .btn {
+
+.login:hover {
+  transform: scale(1.05);  /* 兼容到IE9 */
+  box-shadow: 0 40px 10px -20px hsla(0,0%,0%,0.1); 
+}
+
+.login-iframe {
+  display:none;
+  position: relative;
+  z-index: 0;
+  width:100%;
+  height:300px;
+}
+
+.login-title {
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  color: #FF4365;
+}
+
+
+input {
+  outline: none;
+  font-family: "Space Mono";
+  font-size: 1em;
+  display:block;
+  padding: 1em 1.5em;
+  margin-bottom: 1em;
+  background:rgb(245,245,245);
+}
+
+button {font-family: "Space Mono";}
+
+input[type=text], input[type=password] {
+  border: 1px dashed transparent;
+  transition: all  0.2s ease-out;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: #bbb;
+  width:100%;
+}
+
+input[type=text]:hover, input[type=password]:hover {
+  border:1px dashed #FF4365;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  border:1px dashed #FF4365;
+  color:#FF4365;
+}
+
+.login-hi {font-size:1.2em;}
+
+.login-button {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5em;
+  margin-left:-1.5em;
+  height: 3em;
+  width: 3em;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.1s ease-out;
+  box-sizing: border-box;
+  background: #FF4365;
+  color:white;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.icon-enter {
+	padding-right: 10px;
+}
+
+.login-button-conf {
+  cursor:pointer;
+  transition: all  0.2s ease-in;
+  font-size:0.8em;
+  border-radius: 6px;
+  letter-spacing: 5px;
+  font-weight:bold;
+  background: none;
+  color:white;
+  margin: 2em 0;
+  border: 1px solid white;
+  padding: 1em 3em;
+}
+
+.login-button-conf:hover {
+  background:white;
+  color:#63D471;
+}
+
+.login-small {
+  font-size: 0.8em;
+}
+
+
+.login-abort {
+  color:white;
+}
+
+.login-button:before {
+  content:'';
   display: inline-block;
-  width: 100%;
-}
-.btn-group>.btn:first-child {
-  margin-left: 0;
+  height:100%;
+  width:0;
+  margin:0;
+  padding:0;
+  vertical-align:middle;
 }
 
-.login .btn-group button {
-  font-size: .9em;
-  background-color: #4DCFA1;
-  color: #FFFFFF;
-  padding: 10px 0;
-  margin-top: 20px;
-  border: 1px solid #eee;
+.login .login-button:hover {
+  background: #FF638A;
+}
+
+.login[data-state=''] .login-button {
+  transition: all 0.4s 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.login[data-state=''] .login-button:hover {
+  transform: scale(1.2);
+}
+
+.login[data-state=''] .icon-ko {
+  display: none;
+}
+
+
+/* 点击登陆按钮之后到结果出来之间的效果  */
+.login[data-state=loadingPrepare] .login-button {
+  transition: all 0.2s cubic-bezier(.49,.09,.86,.77);
+  left:0; 
+}
+.login[data-state=loadingStart] .login-button {
+  transition: all 0.4s cubic-bezier(.76,-0.9,.2,1);
+  left:0; 
+  bottom: 0;
+  width: 0;
+  margin-left:0;
+  height: 2px;
+}
+.login[data-state=loading] .login-button {
+  transition: all 0.6s cubic-bezier(.7,.01,.26,.92);
+  left: 0; 
+  bottom: 0;
+  border-radius: 5px;
+  margin-left: 0;
+  width: 100%;
+  height: 2px;
+}
+.login[data-state=loadingPrepare] .login-form,
+.login[data-state=loadingStart] .login-form,
+.login[data-state=loading] .login-form,
+ .login[data-state=loadingEnd] .login-form {
+  opacity:0.5;
+}
+.login[data-state=loadingPrepare] .register,
+.login[data-state=loadingStart] .register,
+.login[data-state=loading] .register,
+ .login[data-state=loadingEnd] .register,
+  .login[data-state=loadingEndOk] .register,
+   .login[data-state=loadingEndKo] .register {
+  display: none;
+}
+.login[data-state=loadingEnd] .login-button,
+.login[data-state=loadingEndOk] .login-button,
+.login[data-state=loadingEndKo] .login-button {
+  transition: all  0.4s cubic-bezier(.7,.01,.26,.92);
+  left: 0%; 
+  margin-left: 0;
+  bottom: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.login[data-state=loadingEndOk] .login-button { /* 成功是绿色 */
+  background: #63D471;
+}
+
+/* 成功或失败时 另外一个提示都应该隐藏  */
+.login[data-state=loadingEndOk] .icon-ko { 
+  display: none;
+}
+.login[data-state=loadingEndKO] .icon-ok {
+  display: none;
+}
+
+.login-icon {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.icon-ok,
+.icon-exit,
+.login[data-state=loadingEnd] .login-icon,
+.login[data-state=loadingStart] .login-icon,
+.login[data-state=loading] .login-icon,
+.login[data-state=loadingEndOk] .icon-enter,
+.login[data-state=loadingEndKo] .icon-enter {display:none;}
+
+/* 登陆之后的两种状态出现  */
+.login[data-state=loadingEndOk] .icon-ok {
+  display: inline-block;
+  position: absolute;
+	left: 0;
+	top: 40%;
+	width: 400px;
+  transition: all 0.4s ease-in;
+}
+.login[data-state=loadingEndKo] .icon-ko {
+  display:inline-block;
+	position: absolute;
+	left: 0;
+	top: 40%;
+	width: 400px;
+  transition: all 0.4s ease-in;
+  text-align: center;
+}
+.S .login[data-state=loadingEndOk] .icon-ok,.S .login[data-state=loadingEndKo] .icon-ko {
+	width: 300px;
+}
+
+/* 登陆成功之后点击enter  */
+.login[data-state=loadingAccess] {
+	display:none;
 }
 
 .register {    
-  position: fixed;
-  top: 70%;
-  left: 50%;
-  margin-left: -180px;
+  position: absolute;
+  top: 80%;
   width: 360px;
 }
-.register .no-reg {
-  display: inline-block;
-  margin-left: 55px;
-  font-size: 18px;
-}
-.register .btn-registe{
-  margin-left: 55px;
-  background-color: rgba(193, 221, 252, 0.8);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 6px 10px;
-  border: 1px solid #fff;
-  border-radius: 8px;
+.register .btn-register {
+	text-decoration: none;
+	color: #AB1E1E;
 }
 
-.register-titl {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  margin: -70px 0 0 -100px;
-  width: 200px;
-  height: 140px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: 600;
-  color: #4DCFA1;
-}
-.nametip,.notip,.passwordtip,.resul {
-  color: #e70b0b;
+.nametip,.notip,.passwordtip,.cpasswordtip {
+	color: #FF4365;
+	margin-bottom: 5px;
 }

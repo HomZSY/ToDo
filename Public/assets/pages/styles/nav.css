@@ -1,232 +1,155 @@
-@font-face {
-  font-family: "responsivenav";
-  src:url("../icons/responsivenav.eot");
-  src:url("../icons/responsivenav.eot?#iefix") format("embedded-opentype"),
-    url("../icons/responsivenav.ttf") format("truetype"),
-    url("../icons/responsivenav.woff") format("woff"),
-    url("../icons/responsivenav.svg#responsivenav") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-body,div,
-h1,h2,p,
-ol,ul,li {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-@-webkit-viewport { width: device-width; }
-@-moz-viewport { width: device-width; }
-@-ms-viewport { width: device-width; }
-@-o-viewport { width: device-width; }
-@viewport { width: device-width; }
 
 html, body {
-  min-height: 100%;
+	margin: 0;padding: 0;
 }
 
-body {
-  min-width: 290px;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  background: #444 url("debut_dark.png") repeat;
-  color: #666;
-  font: normal 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-h1 {
-  font-size: 3em;
-  line-height: 1;
-  color: #222;
-  margin-bottom: .5em;
-  float: left;
+nav, nav ul {
+	position: fixed;
   width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+nav {
+  display: none;
+  transform: scale(.3);
+  transition: all .25s;
 }
 
-h2 {
-  float: left;
+nav ul li {
+  display: table;
   width: 100%;
-  font-size: 1.5em;
-  color: #222;
-  margin: 1em 0 .5em;
+  height: calc(100%/5);
+  transition: all .3s ease .1s;
+}
+nav ul li a i {
+	display: inline-block;
+    margin-right: 10px;
+	width: 30px;
+	height: 30px;
+}
+nav ul li[data-menu=task] a {
+	color: #f59c00;
+}
+nav ul li[data-menu=task] a i {    
+	background: url(../img/index/nav.png) 0 0;
+}
+nav ul li[data-menu=statistics] a {
+	color: #6587bf;
+}
+nav ul li[data-menu=statistics] a i {  
+	background: url(../img/index/nav.png) 0 162px;
+}
+nav ul li[data-menu=calender] a {
+	color: #f2546e;
+}
+nav ul li[data-menu=calender] a i {  
+	background: url(../img/index/nav.png) 0 122px;
+}
+nav ul li[data-menu=backward] a {
+	color: #5fb253;
+}
+nav ul li[data-menu=backward] a i {  
+	background: url(../img/index/nav.png) 0 80px;
+}
+nav ul li[data-menu=notes] a {
+	color: #e0bbe6;
+}
+nav ul li[data-menu=notes] a i {  
+	background: url(../img/index/nav.png) 0 32px;
 }
 
-p {
-  float: left;
-  width: 100%;
-  margin-bottom: 1em;
-}
-
-p.intro {
-  font-size: 1.25em;
-  color: #555;
-  font-weight: bold;
-}
-
-a {
-  color: #f4f4f4;
+nav ul li a {
+	display: table-cell;
+  vertical-align: middle;
+  text-align: center;
   text-decoration: none;
+  font-size: 2.5em;
+  letter-spacing: .2em;
+  text-shadow: 0 0 3px rgba(155,155,155,.3);
+  font-weight: 100;
 }
 
-a:active,
-a:hover {
-  outline: 0;
+nav ul li a:hover {
+	background: rgba(255,255,255,.3);
 }
 
-.main {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-  padding: 3em 4em;
-  position: fixed;
-  overflow: hidden;
-  overflow-y: scroll;
-  border-top-left-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0, .6);
-  top: .8em;
-  right: 0;
-  bottom: 0;
-  width: 76%;
-  background: #fff;
+#toggle {
+	display: none;
+}
+  
+
+#toggle + #toggle-btn,
+.nav-icon {
+	position: absolute;
+  top: 25px;
+  left: 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  
 }
 
-.main::-webkit-scrollbar {
-  -webkit-appearance: none;
-  background-color: rgba(0,0,0, .15);
-  width: 8px;
-  height: 8px;
+#toggle + #toggle-btn {
+  height: 40px;
+  width: 40px;
+  z-index: 1000;
+}
+/* 三条杠 */
+.nav-icon,
+.nav-icon:before,
+.nav-icon:after {
+	position: absolute;
+  height: 4px;
+  width: 35px;
+  margin: 18px 0;
+  z-index: 900;
+  border-radius: 3px;
+  background: #000;
+  transition: all .25s;
+}
+.nav-icon:before {
+	content: "";
+  margin-top: -10px;
+}
+.nav-icon:after {
+	content: "";
+  margin-top: 10px;
 }
 
-.main::-webkit-scrollbar-thumb {
-  border-radius: 0;
-  background-color: rgba(0,0,0, .4);
-}
-
-.nav-collapse {
-  position: absolute;
-  width: 24%;
-  top: 2em;
-  left: 0;
-}
-
-.nav-collapse ul {
+#toggle:checked ~ nav {
   display: block;
-  width: 100%;
-  list-style: none;
+  margin-top: -10px;
+  transform: scale(.8);    
+  z-index: 900;
+}
+.S #toggle:checked ~ nav {
+  margin -10px 0 0 -10px;
+}
+#toggle:checked ~ .nav-icon {
+	background: rgba(216,74,41,0);
 }
 
-.nav-collapse li {
-  width: 100%;
-  display: block;
+/* 这就是叉叉的形成  */
+#toggle:checked ~ .nav-icon:before {
+	transform: rotate(-225deg);
+  margin-top: 0;
 }
 
-.nav-collapse a {
-  color: #aaa;
-  font-weight: bold;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: background .3s ease;
-  -moz-transition: background .3s ease;
-  transition: background .3s ease;
-  text-shadow: 0 -1px rgba(0,0,0, .5);
-  border-bottom: 1px solid rgba(0,0,0, .2);
-  border-top: 1px solid rgba(255,255,255, .1);
-  display: block;
-  padding: .6em 2em;
-  width: 100%;
+#toggle:checked ~ .nav-icon:after {
+	transform: rotate(225deg);
+  margin-top: 0;
 }
 
-.nav-collapse a:hover { background: rgba(255,255,255, .1) }
-.nav-collapse .active a { color: #fff; background: rgba(0,0,0, .3) }
-.nav-collapse li:first-child a { border-top: 0 }
-.nav-collapse li:last-child a { border-bottom: 0 }
-.nav-toggle { display: none }
-
-@media screen and (max-width: 40em) {
-  .js .nav-collapse {
-    clip: rect(0 0 0 0);
-    max-height: 0;
-    position: absolute;
-    display: block;
-    overflow: hidden;
-  }
-  .nav-collapse {
-    top: 0;
-    width: 100%;
-    position: relative;
-  }
-  .nav-collapse.opened { max-height: 9999px }
-  .nav-collapse a:hover { background: transparent }
-  .nav-collapse .active a:hover { color: #fff; background: rgba(0,0,0, .3) }
-  .nav-toggle {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    text-decoration: none;
-    text-indent: -999px;
-    position: relative;
-    overflow: hidden;
-    width: 70px;
-    height: 55px;
-    float: right;
-    display: block;
-    margin: 0 -2em 1em 0;
-  }
-  .nav-toggle:before {
-    color: #444; /* Edit this to change the icon color */
-    font-family: "responsivenav";
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    font-size: 28px;
-    text-transform: none;
-    position: absolute;
-    content: "\2261";
-    text-indent: 0;
-    text-align: center;
-    line-height: 65px;
-    speak: none;
-    width: 100%;
-    top: 0;
-    left: 0;
-  }
-  .nav-toggle.active:before {
-    font-size: 24px;
-    content: "\78";
-  }
-  .main {
-    -webkit-overflow-scrolling: auto;
-    box-shadow: none;
-    padding: 0 2em 2em;
-    border-radius: 0;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
-  .main::-webkit-scrollbar { background-color: transparent }
+#toggle:checked ~ nav ul li {
+	transform: rotateY(0deg) scale(1);
 }
-
-@media screen and (-webkit-min-device-pixel-ratio: 1.3), screen and (min--moz-device-pixel-ratio: 1.3), screen and (-o-min-device-pixel-ratio: 2 / 1), screen and (min-device-pixel-ratio: 1.3), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
-  body {
-    background-image: url("debut_dark_@2X.png");
-    -webkit-background-size: 200px 200px;
-    -moz-background-size: 200px 200px;
-    -o-background-size: 200px 200px;
-    background-size: 200px 200px;
-  }
-}
-
-@media screen and (min-width: 76em) {
-  .nav-collapse { width: 18em }
-  .main { width: auto; left: 18em }
+ 
+.back {
+	display: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #FAFAD2;
+	background: linear-gradient(#fafad2,#f7bc55);
+	z-index: 500;
 }

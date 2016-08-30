@@ -66,7 +66,6 @@ class UserController extends BaseController {
         $data['name'] = I('userName');
         $data['namelen'] = I('namelen');
         $data['abcname'] = I('abcname');
-        $data['sex'] = I('sex');
         $data['user_no'] = I('account');
         $data['accountlen'] = I('accountlen');
         $data['straccount'] = I('straccount');
@@ -75,7 +74,7 @@ class UserController extends BaseController {
         $data['password'] = md5($password);
         $data['status'] = 1;
         $user_no = M('User')->where(array('status'=>1,'user_no'=>$data['user_no']))->find();
-        if($data['name'] && $data['sex'] && $data['user_no'] && $data['password'] && $password){
+        if($data['name'] && $data['user_no'] && $data['password'] && $password){
             if($data['namelen'] > 10){
                 $json['info'] = "请不要输入超过10个英文字符或5个中文字符(￣▽￣'')";
                 $json['status'] = 1;

@@ -29,7 +29,7 @@ body {
 	float: left;
 	width: 80px;
 	height: 100px;
-	background-image: url(../img/index/titlel.jpg);
+	background-image: url(../img/index/titlel.png);
 	background-size: cover;
 }
 .title_div .titler {
@@ -37,7 +37,7 @@ body {
 	float: right;	
 	width: 170px;
 	height: 100px; 
-	background-image: url(../img/index/titler.jpg);
+	background-image: url(../img/index/titler.png);
 	background-size: cover;
 }
 
@@ -49,7 +49,7 @@ body {
 	margin: -125px 0 0 -125px;
 	width: 250px;
 	height: 250px;
-	background: url(../img/index/kick.jpg);
+	background: url(../img/index/kick.png);
 	background-position: 0 0; 
 
 	animation: kick .8s steps(4) infinite;

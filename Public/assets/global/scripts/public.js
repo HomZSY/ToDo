@@ -89,7 +89,7 @@ $.extend({
     }
 });
 (function () {
-    $('.cd-nav li').on('click', function () {
+    $('.td-nav li').on('click', function () {
       var menu = $(this).data('menu');
       switch (menu) {
           case 'task':

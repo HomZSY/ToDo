@@ -5,7 +5,7 @@ return array(
 		// 数据库地址：
 		'DB_HOST'				=>	'127.0.0.1',
 		// 数据库名：
-		'DB_NAME'				=>	'hy_todo',
+		'DB_NAME'				=>	'zsy_todo',
 		// 用户名：
 		'DB_USER'   			=>	'root',
 		// 密码：
