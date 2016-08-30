@@ -1,7 +1,7 @@
 
-var DoList = function(){
+var DoList = function() {
 
-    var loading = function(){
+  /*  var loading = function(){
         var $loading = $(".loading");
         var $list_main = $(".list-main");
         var $page = $(".all-page");
@@ -34,42 +34,40 @@ var DoList = function(){
                 });
             }
         });
-    }
+    }*/
 
     var addList = function() {
         //console.log(123);
-        $(".page-body .click-picture").on('click', function(){
+        $(".list-title .click-picture").on('click', function(){
             $(this).css({background: 'url('+_PUBLIC_+'/assets/pages/img/list/hen1.png) no-repeat', backgroundSize: 'contain'});
-            $(".page-body .egg-close").show().stop().animate({
-                //opacity:'+=1',
-                padding:'50px 0px 14px 0px',
-                top:'48%'
+            $(".list-centent .egg-close").show().animate({
+            	top: '20px'
             },1000,function(){
-                $(this).stop().hide().animate({
-                    //opacity:'0',
-                    padding:'0',
-                    top: '20%'
-                }, 10, function() {
-                    var tpl_list = '<div class="list-input">'
-                        +'<div class="list-pic">'
-                        +'</div>'
-                        +'<div class="list-inp">'
-                        +'<input type="text" class="list-title" id="list-title"/>'
-                        +'<button type="button" class="btn-input-close">×</button>'
-                        +'</div>'
-                        +'<div class="clear-fix"></div>'
-                        +'</div>';
-                    $(".page-body .list-tip").removeClass('list-tip-style').html('');
-
-                    $(".page-body .list-main").prepend(tpl_list);
-                });
+            	var li_list = '';
+            	if ($('ul.timeline li:first').attr('class')) { //表面第一个li在时间轴右边
+            		li_list = '<li>'
+							+'<div class="timeline-badge"></div><div class="timeline-panel">'
+			              		+'<p class="timeline-title"></p>'
+			              		+'<p class="timeline-content"></p>'
+			              		+'<p class="timeline-endtime"></p>'
+					        +'</div></li>'
+            	} else {
+            		li_list = '<li class="right">'
+							+'<div class="timeline-badge"></div><div class="timeline-panel">'
+			              		+'<p class="timeline-title"></p>'
+			              		+'<p class="timeline-content"></p>'
+			              		+'<p class="timeline-endtime"></p>'
+					        +'</div></li>'
+            	}
+            	$('.list-centent .timeline').prepend(li_list);
+            	$(this).stop().hide().css('top','-100px');
             });
             setTimeout(function() {
                 $('.click-picture').css({background: 'url('+_PUBLIC_+'/assets/pages/img/list/hen.png) no-repeat', backgroundSize: 'contain'});
             }, 1100);
         });
     }
-    var doSelect = function (data , selected){
+    /*var doSelect = function (data , selected){
         if (!data)  data = [
             { id: '', name: '-- 点击选择 --'},
             { id: '1', name: '生活'},
@@ -247,9 +245,9 @@ var DoList = function(){
 
             });
         });
-    }
+    }*/
 
-    var deleteEggs = function(){
+    /*var deleteEggs = function(){
         $(".list-main").on('click','.btn-input-close',function(){
             var the = $(this);
             var self = $(this).parents().prev();
@@ -289,17 +287,17 @@ var DoList = function(){
                         no_del : {color:'#818481' , content:'不删除'}
                     }
                 });
-            }
+            }*/
             /*公共不删除按钮处理*/
-            $(".modal-box-btn").on('click','.modal-btn-no_del',function(){
-                $(".modal-mask").fadeOut();
-                $(".modal-main").slideUp();
-            });
+//          $(".modal-box-btn").on('click','.modal-btn-no_del',function(){
+//              $(".modal-mask").fadeOut();
+//              $(".modal-main").slideUp();
+//          });
             /*删除按钮处理*/
-            $(".modal-box-btn").on('click','.modal-btn-confirm_del',function(){
+//          $(".modal-box-btn").on('click','.modal-btn-confirm_del',function(){
                 /*$(".modal-mask").fadeOut();
                  $(".modal-main").slideUp();*/
-                $.post($.U('list/ajax_del'),{
+              /*  $.post($.U('list/ajax_del'),{
                     id : id ,
                     is_finished : is_finish
                 },function(r){
@@ -579,23 +577,23 @@ var DoList = function(){
         $('#list-search-category').on('change',function(){
             $(".btn-go").trigger('click');
         });
-    }
+    }*/
     return {
         init: function () {
-            categorySearch();
-            addSelect();
-            start();
-            refresh();
-            do_egg_img();
+//          categorySearch();
+//          addSelect();
+//          start();
+//          refresh();
+//          do_egg_img();
             addList();
-            layer();
-            changeEgg();
-            deleteEggs();
-            listSearchEgg();
-            loading();
-            ajaxPage();
-            timeCategorySearch();
-            finishLevelSearch();
+//          layer();
+//          changeEgg();
+//          deleteEggs();
+//          listSearchEgg();
+//          loading();
+//          ajaxPage();
+//          timeCategorySearch();
+//          finishLevelSearch();
         }
     };
 }();

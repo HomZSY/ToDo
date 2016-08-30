@@ -88,13 +88,14 @@ a {
 /* 时间轴那根线 */
 .list-centent .timeline {
     position: relative;
-    padding: 20px 0 20px;
+    top: 20px;
     list-style: none;
     text-align: center;
 }
 .list-centent .timeline li {
-	min-height: 140px;
+	position: relative;
 	list-style: none;
+	min-height: 120px;
 }
 .list-centent .timeline:before {
     content: " ";
@@ -108,16 +109,18 @@ a {
 }
 .list-centent .timeline > li > .timeline-badge {
     position: absolute;
-    top: 16px;
+    top: 0;
     left: 43%;
     width: 60px;
     height: 80px;
-    background: #eee;
+    background: url(../img/list/egg-close.png);
+    background-size: 100%;
 }
+/* 时间轴左边  */
 .timeline > li > .timeline-panel {
-	position: relative;
-	left: 0;
+	position: relative; /* 只是为了尖角 并没有其他用处 */
 	width: 35%;
+	min-height: 80px;
 	padding: 10px 20px;
 	border: 1px solid #d4d4d4;
 	border-radius: 2px;
@@ -143,6 +146,24 @@ a {
     border: 14px solid transparent;
     border-left-color: #fff;
 }
+/* 时间轴右边  */
+.timeline > li.right > .timeline-panel {
+	float: right;
+	width: 43%;
+}
+.timeline > li.right > .timeline-panel:before {
+    border: 15px solid transparent;
+    border-right-color: #ccc;
+    left: -30px;
+    right: auto;
+}
+.timeline > li.right > .timeline-panel:after {
+    border: 14px solid transparent;
+	border-right-color: #fff;
+    left: -28px;
+    right: auto;
+}
+
 .timeline .timeline-panel .timeline-title {
 	font: bold 16px "microsoft yahei";
 }
