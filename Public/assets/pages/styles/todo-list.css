@@ -1,29 +1,34 @@
-body {
+body,
+div,
+p,
+ul,li
+a {
     font-size:14px;
+    margin: 0;
+    padding: 0;
 }
 .container {
 	width: 100%;
 }
 
-/* 点击下蛋 */
+/* 下蛋的母鸡 */
 .list-title {
 	position: relative;
 	margin: 0 auto;
 	width: 500px;
 }
 .list-title .click-picture {
-    margin-top: 70px;
+    margin: 70px 0 0 150px;
     height: 130px;
     background: url(../img/list/hen.png) no-repeat;
     background-size: contain;
 }
 .list-title .click-picture-tip {
     position: absolute;
-    left: 150px;
+    left: 270px;
     top: -20px;
     font-size: 38px;
     transform: rotate(-20deg);
-
 }
 .click-picture-tip .tip-d {
     padding: 10px;
@@ -53,10 +58,94 @@ body {
 
 @-webkit-keyframes imgAnimation {
     0% { left: 0;}
-    100% { left: 150px;}
+    100% { left: 270px;}
 }
 
 @-moz-keyframes imgAnimation {
     0% { left: 0;}
-    100% { left: 150px;}
+    100% { left: 270px;}
+}
+
+/* 列表内容 */
+.list-centent {
+	position: relative;
+    margin: 0 auto;
+    width: 1000px;
+}
+/* 下出来的蛋  */
+.list-centent .egg-close {
+    display: none;
+    position: absolute;
+    top: -100px;
+    left: 432px;
+    width: 60px;
+    height: 80px;
+    background: url(../img/list/egg-close.png) no-repeat;
+    background-size: 100%;
+    z-index: -1;
+}
+/* 列表  以时间轴的方式呈现  */
+/* 时间轴那根线 */
+.list-centent .timeline {
+    position: relative;
+    padding: 20px 0 20px;
+    list-style: none;
+    text-align: center;
+}
+.list-centent .timeline li {
+	min-height: 140px;
+	list-style: none;
+}
+.list-centent .timeline:before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 46%;
+    width: 3px;
+    background-color: #eee;
+    z-index: -2;
+}
+.list-centent .timeline > li > .timeline-badge {
+    position: absolute;
+    top: 16px;
+    left: 43%;
+    width: 60px;
+    height: 80px;
+    background: #eee;
+}
+.timeline > li > .timeline-panel {
+	position: relative;
+	left: 0;
+	width: 35%;
+	padding: 10px 20px;
+	border: 1px solid #d4d4d4;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .175);
+	box-shadow: 0 1px 6px rgba(0, 0, 0, .175);
+}
+/* 尖角 */
+.timeline > li > .timeline-panel:before {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 26px;
+    right: -30px;
+    border: 15px solid transparent;
+    border-left-color: #ccc;
+}
+.timeline > li > .timeline-panel:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 27px;
+    right: -28px;
+    border: 14px solid transparent;
+    border-left-color: #fff;
+}
+.timeline .timeline-panel .timeline-title {
+	font: bold 16px "microsoft yahei";
+}
+.timeline .timeline-panel .timeline-content {
+	margin: 10px 0;
 }
