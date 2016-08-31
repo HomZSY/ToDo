@@ -3,7 +3,7 @@ namespace Home\Controller;
 use Think\Controller;
 class ListController extends BaseController {
 
-    public function _initialize(){
+    public function _initialize() {
         parent:: _initialize();
         if( !ss_user_id() ){
             $this->redirect('User/login');
@@ -11,8 +11,7 @@ class ListController extends BaseController {
             $this->assign('username',ss_user_name());
         }
     }
-
-    public function todo_list(){
+    public function todo_list() {
         $md = D("Details");
         $details = $md->get_details();
         $all_count = $md->get_all_count();
@@ -25,7 +24,11 @@ class ListController extends BaseController {
 //        dump($details);
         $this->display();
     }
-
+	
+	public function ajax_add_list() {
+		
+	}
+	
     public function ajax_todo_list(){
         $json = array('status'=>false,'info'=>'','data'=>'','ajax_page'=>'');
         $md = D("Details");

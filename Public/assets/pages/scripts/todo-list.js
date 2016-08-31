@@ -1,11 +1,19 @@
-
+var egg_img = {
+	'red': '0',
+	'orange' : '-72px',
+	'green' : '-144px',
+	'blue' : '61px'
+}
 var DoList = function() {
 		var bind = function() {
 			$('ul.timeline').on('click','.click',function(){
 				editList($(this));
 			})
 			$('ul.timeline').on('click','i',function(){
-				saveList($(this).attr('class'));
+				saveList($(this));
+			})
+			$('ul.timeline').on('click','.img',function(){
+				$(this).css('background-position-y',0);
 			})
 		}
   /*  var loading = function(){
@@ -73,10 +81,10 @@ var DoList = function() {
             	var li_list = '';
             	if ($('ul.timeline li:first').attr('class')) { //表面第一个li在时间轴右边
             		li_list = '<li>'
-							+'<div class="timeline-badge"></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
+							+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	} else {
             		li_list = '<li class="right">'
-							+'<div class="timeline-badge"></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
+							+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	}
             	$('.list-centent .timeline').prepend(li_list);
             	$(this).stop().hide().css('top','-100px');
@@ -99,11 +107,54 @@ var DoList = function() {
     										+'<input type="text" name="endtime" placeholder="孵蛋时间" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
     										+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
     										+'<i class="red"></i>'
-    										+'<i class="oriange"></i>'
+    										+'<i class="orange"></i>'
     										+'<i class="green"></i>'
     										+'<i class="blue"></i></p>';
-    		$('.form').html(list_input);
+    		obj.next('.form').html(list_input);
     	});
+    }
+    /* 点击鸡蛋之后保存的事件  */
+    var saveList = function(obj) {
+    	var color = obj.attr('class');
+    	var img_x = egg_img[color];
+    	var img_y = '-4px';
+//  	var img_y = '-84px';
+			var name = obj.parent().prevAll().eq(2).val();
+			var content = obj.parent().prevAll().eq(1).val();
+			var endTime = obj.parent().prevAll().eq(0).val();
+			if(!name || !content || !endtime){
+				alert('温馨提示：所有的空格都要填上内容哦~ o(*￣▽￣*)o');
+				return false;
+			}
+			$.ajax({
+				type: "post",
+				url: $.U("List/ajax_add_list"),
+				async:true,
+				data: {
+					name: name,
+					content: content,
+					endTime: endTime
+				},
+				datatype: 'json',
+				success: function() {
+					var time = obj.closest('.timeline-panel');
+		    	obj.closest('li').animate({
+		    		height: '120px'
+		    	},1000);
+		    	panel.animate({
+		    		height: '80px'
+		    	},1000,function(){
+		    		var img = panel.prev('.timeline-badge').find('.img');
+		    		console.log(panel,img);
+		    		img.show();
+		    		img.css('background-position-x',img_x);
+		    		img.css('background-position-y',img_y);
+		    		var list_show = '';
+		    		obj.parent().parent().html(list_show);
+		    	});
+				}
+			});
+			
     }
     /*var doSelect = function (data , selected){
         if (!data)  data = [
