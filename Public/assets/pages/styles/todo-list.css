@@ -127,6 +127,19 @@ a {
 	-webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .175);
 	box-shadow: 0 1px 6px rgba(0, 0, 0, .175);
 }
+.timeline > li > .timeline-panel .click {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+}
+.timeline > li > .timeline-panel .form {
+	position: absolute;    
+	left: 5px;
+	z-index: 20;
+}
 /* 尖角 */
 .timeline > li > .timeline-panel:before {
     content: " ";
@@ -162,6 +175,48 @@ a {
 	border-right-color: #fff;
     left: -28px;
     right: auto;
+}
+
+.timeline .timeline-panel .form input,textarea {
+	width: 90%;
+	padding: 10px;
+	border: 1px solid #ccc;
+    border-radius: 2px;
+}
+.timeline .timeline-panel .form input {
+	height: 20px;
+    margin: 10px;
+}
+.timeline .timeline-panel .form textarea {
+	height: 100px;
+	overflow: hidden; 
+	resize: none;
+}
+.timeline .timeline-panel .form input:focus,textarea:focus {
+	border: 1px dashed #e1b26a;
+	box-shadow: 0px 0px 10px #3FA4FE;
+}
+.timeline .timeline-panel .form p.tips {
+	margin: 10px;
+	text-align: right;
+	line-height: 30px;
+}
+.timeline .timeline-panel .form p.tips span {
+	position: absolute;
+    left: 4%;
+    bottom: 0;
+    color: #F2546E;
+    text-align: left;
+}
+.timeline .timeline-panel .form p.tips i {
+	width: 30px;
+	height: 40px;
+	font-style: normal;
+}
+.timeline .timeline-panel .form p.tips i:after {
+	content: '\039F';
+	font-size: 40px;
+	
 }
 
 .timeline .timeline-panel .timeline-title {

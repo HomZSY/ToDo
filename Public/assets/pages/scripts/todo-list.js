@@ -1,6 +1,13 @@
 
 var DoList = function() {
-
+		var bind = function() {
+			$('ul.timeline').on('click','.click',function(){
+				editList($(this));
+			})
+			$('ul.timeline').on('click','i',function(){
+				saveList($(this).attr('class'));
+			})
+		}
   /*  var loading = function(){
         var $loading = $(".loading");
         var $list_main = $(".list-main");
@@ -35,9 +42,29 @@ var DoList = function() {
             }
         });
     }*/
-
+   /* 今日的时间  */
+		var defaultTime = function(){
+        Date.prototype.Format = function(fmt){
+            var o = {
+                "M+" : this.getMonth()+1,                 //月份
+                "d+" : this.getDate(),                    //日
+                "h+" : this.getHours(),                   //小时
+                "m+" : this.getMinutes(),                 //分
+                "s+" : this.getSeconds(),                 //秒
+                "q+" : Math.floor((this.getMonth()+3)/3), //季度
+                "S"  : this.getMilliseconds()             //毫秒
+            };
+            if(/(y+)/.test(fmt))
+                fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+            for(var k in o)
+                if(new RegExp("("+ k +")").test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            return fmt;
+        }
+        return (new Date()).Format("yyyy-M-d h:m:s");
+    }
+		/* 下一个蛋 发生的事件  */
     var addList = function() {
-        //console.log(123);
         $(".list-title .click-picture").on('click', function(){
             $(this).css({background: 'url('+_PUBLIC_+'/assets/pages/img/list/hen1.png) no-repeat', backgroundSize: 'contain'});
             $(".list-centent .egg-close").show().animate({
@@ -46,18 +73,10 @@ var DoList = function() {
             	var li_list = '';
             	if ($('ul.timeline li:first').attr('class')) { //表面第一个li在时间轴右边
             		li_list = '<li>'
-							+'<div class="timeline-badge"></div><div class="timeline-panel">'
-			              		+'<p class="timeline-title"></p>'
-			              		+'<p class="timeline-content"></p>'
-			              		+'<p class="timeline-endtime"></p>'
-					        +'</div></li>'
+							+'<div class="timeline-badge"></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	} else {
             		li_list = '<li class="right">'
-							+'<div class="timeline-badge"></div><div class="timeline-panel">'
-			              		+'<p class="timeline-title"></p>'
-			              		+'<p class="timeline-content"></p>'
-			              		+'<p class="timeline-endtime"></p>'
-					        +'</div></li>'
+							+'<div class="timeline-badge"></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	}
             	$('.list-centent .timeline').prepend(li_list);
             	$(this).stop().hide().css('top','-100px');
@@ -66,6 +85,25 @@ var DoList = function() {
                 $('.click-picture').css({background: 'url('+_PUBLIC_+'/assets/pages/img/list/hen.png) no-repeat', backgroundSize: 'contain'});
             }, 1100);
         });
+    }
+    /* 编辑具体事件内容  */
+    var editList = function(obj) {
+    	obj.parent().parent().animate({
+    		height: '340px'
+    	},1000);
+    	obj.parent().animate({
+    		height: '300px'
+    	},1000,function(){
+    		var list_input = '<input type="text" name="title" placeholder="标题" />'
+    										+'<textarea name="content" placeholder="内容"></textarea>'
+    										+'<input type="text" name="endtime" placeholder="孵蛋时间" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
+    										+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
+    										+'<i class="red"></i>'
+    										+'<i class="oriange"></i>'
+    										+'<i class="green"></i>'
+    										+'<i class="blue"></i></p>';
+    		$('.form').html(list_input);
+    	});
     }
     /*var doSelect = function (data , selected){
         if (!data)  data = [
@@ -580,6 +618,7 @@ var DoList = function() {
     }*/
     return {
         init: function () {
+        		bind();
 //          categorySearch();
 //          addSelect();
 //          start();

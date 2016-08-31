@@ -2,27 +2,29 @@
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8"/>
-    <link rel="shortcut icon" href="/todo1/todo2/Public/assets/pages/img/index/avatar.jpg"/>
+    <link rel="shortcut icon" href="/toDo-master/Public/assets/pages/img/index/avatar.png"/>
     <title>土豆鸡快</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <meta name="author" content="zsy"/>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
-        <link rel="stylesheet" href="/todo1/todo2/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/toDo-master/Public/assets/global/plugins/bootstrap/css/bootstrap.min.css"/>
     
-        <link href="/todo1/todo2/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
+        <link href="/toDo-master/Public/assets/global/styles/style.css" rel="stylesheet" type="text/css"/>
     <!-- END GLOBAL MANDATORY STYLES -->
-
-    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-        <link href="/todo1/todo2/Public/assets/global/plugins/icon/style.css" rel="stylesheet" type="text/css"/>
-    <!-- END PAGE LEVEL PLUGIN STYLES -->
 
     <!-- BEGIN PAGE STYLES -->
         
-    <link href="/todo1/todo2/Public/assets/pages/styles/backwards.css" rel="stylesheet" type="text/css"/>
+    <link href="/toDo-master/Public/assets/pages/styles/backwards.css" rel="stylesheet" type="text/css"/>
 
     <!-- END PAGE STYLES -->
+    
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="/toDo-master/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
+    <script src="/toDo-master/Public/assets/global/plugins/main.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    
 </head>
 
 <body>
@@ -102,7 +104,7 @@
             </div>
         </div>
         <div class="add-btn">
-            <a href="javascript:;"><img src="/todo1/todo2/Public/assets/pages/img/backwards/chick-add.png" alt="" ondragstart="return false"/></a>
+            <a href="javascript:;"><img src="/toDo-master/Public/assets/pages/img/backwards/chick-add.png" alt="" ondragstart="return false"/></a>
         </div>
 
         <!-- Modal -->
@@ -144,35 +146,34 @@
 <!-- END PAGE-BODY -->
 
 <!-- BEGIN CORE PLUGINS -->
-    <script src="/todo1/todo2/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
-    <script src="/todo1/todo2/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/todo1/todo2/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
-    <script src="/todo1/todo2/Public/assets/global/plugins/main.js" type="text/javascript"></script>
+    
+    <!--<script src="/toDo-master/Public/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>-->
+    <script src="/toDo-master/Public/assets/global/plugins/modernizr.js" type="text/javascript"></script>
 <!-- END CORE PLUGINS -->
 
 <!-- BEGIN CORE GLOBAL -->
-    <script src="/todo1/todo2/Public/assets/global/scripts/public.js" type="text/javascript"></script>
+    <script src="/toDo-master/Public/assets/global/scripts/public.js" type="text/javascript"></script>
 <!-- END CORE GLOBAL -->
 
 <script type="text/javascript">
     /* GLOBAL URL */
-    var _ROOT_ = '/todo1/todo2',
-            _PUBLIC_ = '/todo1/todo2/Public',
-            _INDEX_ = '/todo1/todo2/index.php',
-            _ACTION_ = '/todo1/todo2/index.php/Home/List/backwards',
-            _MODULE_ = '/todo1/todo2/index.php/Home',
-            _CONTROLLER_ = '/todo1/todo2/index.php/Home/List';
-    window._ROOT_='/todo1/todo2';
-    window._APP_='/todo1/todo2/index.php';
+    var _ROOT_ = '/toDo-master',
+            _PUBLIC_ = '/toDo-master/Public',
+            _INDEX_ = '/toDo-master/index.php',
+            _ACTION_ = '/toDo-master/index.php/Home/List/backwards',
+            _MODULE_ = '/toDo-master/index.php/Home',
+            _CONTROLLER_ = '/toDo-master/index.php/Home/List';
+    window._ROOT_='/toDo-master';
+    window._APP_='/toDo-master/index.php';
     window._ACTION_='<?php echo U("");?>';
-    window._SELF_='<?php echo urldecode("/todo1/todo2/index.php/Home/List/backwards");?>';
+    window._SELF_='<?php echo urldecode("/toDo-master/index.php/Home/List/backwards");?>';
 </script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
     
-    <script src="/todo1/todo2/Public/assets/global/plugins/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="/todo1/todo2/Public/assets/global/plugins/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
-    <script src="/todo1/todo2/Public/assets/pages/scripts/backwards.js" type="text/javascript"></script>
+    <script src="/toDo-master/Public/assets/global/plugins/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="/toDo-master/Public/assets/global/plugins/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <script src="/toDo-master/Public/assets/pages/scripts/backwards.js" type="text/javascript"></script>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 
