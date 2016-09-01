@@ -20,20 +20,26 @@ var DoList = function() {
 			saveList($(this));
 		})
 		$('ul.timeline').on('click','.img',function(){
-			$(this).css('background-position-y','78px');
-			$.ajax({
-				type:"post",
-				url:$.U("List/ajax_finish_event"),
-				async:true,
-				data: {
-					is_finished: 1
-				},
-				success: function(r) {
-					if(r.status){
-						alert(r.info);
+			if ($(this).closest('li').attr('data-finished') == 1) { //已孵化 
+				alert('你的小鸡已经孵化出来啦，不能再次变成鸡蛋啦╮(╯▽╰)╭');
+				return false;
+			} else {
+				$(this).css('background-position-y','78px');
+				$.ajax({
+					type:"post",
+					url: $.U("List/ajax_finish_event"),
+					async:true,
+					data: {
+						id: $(this).closest('li').attr('data-id'),
+						is_finished: 1
+					},
+					success: function(r) {
+						if(r.status){
+							alert(r.info);
+						}
 					}
-				}
-			});
+				});
+			}
 		})
 	}
   /*  var loading = function(){
@@ -84,19 +90,19 @@ var DoList = function() {
 						var li_list = [];
 						$(r.data).each(function(i,o){
 							var img_x = egg_img[o.name];
-    						var img_y = o.is_finished ? '78px' : 0;
+    						var img_y = o.is_finished==1 ? '78px' : 0;
 							if (i%2 == 0) {
-								li_list.push('<li data-id="'+o.id+'">'
+								li_list.push('<li data-id="'+o.id+'" data-finished="'+o.is_finished+'">'
 									+'<div class="timeline-badge"><span class="img" style="background-position: '+img_x+' '+img_y+';"></span></div><div class="timeline-panel"><div class="click"></div><div class="form">'
 									+'<p class="timeline-title">标题：'+o.title+'</p>'
-		    					    +'<p class="timeline-content">内容；'+o.content+'</p>'
+		    					    +'<p class="timeline-content">内容：'+o.content+'</p>'
 		    					    +'<p class="timeline-endtime">预计孵化时间：'+o.due_to_time+'</p>'
 									+'</div></div></li>');
 							} else {
-								li_list.push('<li class="right" data-id="'+o.id+'">'
+								li_list.push('<li class="right" data-id="'+o.id+'" data-finished="'+o.is_finished+'">'
 									+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form">'
 									+'<p class="timeline-title">标题：'+o.title+'</p>'
-		    					    +'<p class="timeline-content">内容；'+o.content+'</p>'
+		    					    +'<p class="timeline-content">内容：'+o.content+'</p>'
 		    					    +'<p class="timeline-endtime">预计孵化时间：'+o.due_to_time+'</p>'
 									+'</div></div></li>');
 							}
@@ -133,29 +139,33 @@ var DoList = function() {
     }
     /* 编辑具体事件内容  */
     var editList = function(obj) {
-    	var reg = /[\u4E00-\u9FA5]+(：)/g; //找到冒号之前的内容
-    	console.log(obj.next().html())
-    	if(obj.next().html()){
-    		title1 = obj.next().children().eq(0).html().replace(reg,'');
-	    	content1 = obj.next().children().eq(1).html().replace(reg,'');
-	    	endTime1 = obj.next().children().eq(2).html().replace(reg,'');
-    	}
-    	obj.parent().parent().animate({
-    		height: '340px'
-    	},1000);
-    	obj.parent().animate({
-    		height: '300px'
-    	},1000,function(){
-    		var list_input = '<input type="text" name="title" placeholder="标题" value="'+title1+'"/>'
-								+'<textarea name="content" placeholder="内容">'+content1+'</textarea>'
-								+'<input type="text" name="endtime" placeholder="孵蛋时间" value="'+endTime1+'" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
-								+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
-								+'<i class="red"></i>'
-								+'<i class="orange"></i>'
-								+'<i class="green"></i>'
-								+'<i class="blue"></i></p>';
-    		obj.next('.form').html(list_input);
-    	});
+		if (obj.closest('li').attr('data-finished') == 1) { //已孵化 
+			alert('你的小鸡已经孵化出来啦，不能再次编辑咯╮(╯▽╰)╭');
+			return false;
+		} else {
+			var reg = /[\u4E00-\u9FA5]+(：)/g; //找到冒号之前的内容
+	    	if(obj.next().html()){
+	    		title1 = obj.next().children().eq(0).html().replace(reg,'');
+		    	content1 = obj.next().children().eq(1).html().replace(reg,'');
+		    	endTime1 = obj.next().children().eq(2).html().replace(reg,'');
+	    	}
+	    	obj.parent().parent().animate({
+	    		height: '340px'
+	    	},1000);
+	    	obj.parent().animate({
+	    		height: '300px'
+	    	},1000,function(){
+	    		var list_input = '<input type="text" name="title" placeholder="标题" value="'+title1+'"/>'
+									+'<textarea name="content" placeholder="内容">'+content1+'</textarea>'
+									+'<input type="text" name="endtime" placeholder="孵蛋时间" value="'+endTime1+'" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
+									+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
+									+'<i class="red"></i>'
+									+'<i class="orange"></i>'
+									+'<i class="green"></i>'
+									+'<i class="blue"></i></p>';
+	    		obj.next('.form').html(list_input);
+	    	});
+		}
     }
     /* 点击鸡蛋之后保存的事件  */
     var saveList = function(obj) {

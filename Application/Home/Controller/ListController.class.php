@@ -45,13 +45,28 @@ class ListController extends BaseController {
         $content = I('content');
         $level_id = I('level_id');
         $create_time = time();
-        $due_do_time = I('endTime');
+        $due_to_time = I('endTime');
         $md = D('Details');
-        $json['status'] = $md->addEvent($id,$title,$content,$level_id,$create_time,$due_do_time);
+        $json['status'] = $md->addEvent($id,$title,$content,$level_id,$create_time,$due_to_time);
         if ($json['status']) {
             $json['info'] = "下蛋成功，等待孵化`(*∩_∩*)′";
         } else {
         	$json['info'] = "很遗憾，下蛋失败(>_<) 请再试试吧~";
+        }
+        $this->ajaxReturn($json);
+	}
+	/* 鸡蛋孵化   */
+	public function ajax_finish_event() {
+		$json = array('status' => false, 'info' => '', 'data' => '');
+		$id = I('id');
+       	$is_finished = I('is_finished');
+		$do_time = time();
+        $md = D('Details');
+        $json['status'] = $md->finishEvent($id,$is_finished,$do_time);
+        if ($json['status']) {
+            $json['info'] = "孵化成功，恭喜你完成任务`(*∩_∩*)′";
+        } else {
+        	$json['info'] = "很遗憾，孵化失败(>_<) 请再试试吧~";
         }
         $this->ajaxReturn($json);
 	}

@@ -16,11 +16,12 @@ class DetailsModel extends BaseModel {
 //          ->page($p ? $p : 1 , C('INDEX_ARTICLE_NUM'))
             ->order('d.create_time desc')
             ->select();
-        foreach($details as $v){
-            $v['create_time'] = date('Y-m-d H:i:s' , $v['create_time']);
-            $v['do_time'] = date('Y-m-d H:i:s' , $v['do_time']);
-            $v['due_to_time'] = date('Y-m-d H:i:s' , $v['due_to_time']);
+		foreach($details as $k=>$v){
+            $details[$k]['create_time'] = date('Y-m-d H:i:s' , $v['create_time']);
+            $details[$k]['do_time'] = date('Y-m-d H:i:s' , $v['do_time']);
+            $details[$k]['due_to_time'] = date('Y-m-d H:i:s' , $v['due_to_time']);
         }
+        
         return $details;
     }
     //获取所有的记录数
@@ -126,9 +127,9 @@ class DetailsModel extends BaseModel {
     }
 	
 	
-    // 添加事件 zsy
+    // 添加事件与修改事件 zsy
     public function addEvent($id, $title, $content, $level_id, $create_time, $due_to_time){
-    	if (!$id) {
+    	if (!$id) { //为新增
     		if ($title && $content && $due_to_time && $level_id) {
 	            $data['user_id'] = ss_user_id();
 	            $data['title'] = $title;
@@ -159,6 +160,17 @@ class DetailsModel extends BaseModel {
     	}
         
     }
+	// 孵化事件
+	public function finishEvent($id,$is_finished,$do_time){
+		if ($id && $is_finished && $do_time) {
+			$data['is_finished'] = $is_finished;
+			$data['do_time'] = $do_time;
+			$this->where(array('id'=>$id,'user_id' => ss_user_id()))->save($data);
+	        return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
    
