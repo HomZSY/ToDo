@@ -1,5 +1,4 @@
 var login = function(){
-
 	var getLoginInfo = function(){
 		var pane = $('.login'),btn = $('.login-button');
         btn.on('click',function(e){

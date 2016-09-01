@@ -22,6 +22,26 @@
     <script src="/toDo-master/Public/assets/global/plugins/jquery-2.1.1.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
     
+    <script type="text/javascript">
+			(function(doc, win) {
+		    var screenWidth = 0, size = 'M', root = doc.documentElement;
+		    if (window.screen && screen.width) {
+		        screenWidth = screen.width;
+		        if (screenWidth > 1920) {
+		            // 超大屏，例如iMac
+		            size = 'L';
+		        } else if (screenWidth < 480) {
+		            // 小屏，如手机
+		            size = 'S';
+		        }
+		    }
+		    // 标记CSS
+		    root.className = size;
+		    console.log(doc.documentElement);
+		    // 标记JS
+		    win.SIZE = size;        
+		})(document, window);
+		</script>
 </head>
 
 <body>
@@ -86,7 +106,7 @@
     window._ROOT_='/toDo-master';
     window._APP_='/toDo-master/index.php';
     window._ACTION_='<?php echo U("");?>';
-    window._SELF_='<?php echo urldecode("/toDo-master/index.php/Home/Index/index");?>';
+    window._SELF_='<?php echo urldecode("/toDo-master/index.php");?>';
 </script>
 
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
