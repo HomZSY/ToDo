@@ -114,8 +114,8 @@ a {
     height: 80px;
     background: url(../img/list/egg-close.png);
 }
-.list-centent .timeline > li > .timeline-badge span {
-	display: none;
+.list-centent .timeline > li > .timeline-badge span.img {
+	/*display: none;*/
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -231,10 +231,15 @@ a {
 	
 }
 
+.timeline .timeline-panel .form p {
+    text-align: left;
+    font: 14px 'microsoft yahei';
+    padding-left: 10px;
+}
 .timeline .timeline-panel .timeline-title {
 	font: bold 16px "microsoft yahei";
 }
-.timeline .timeline-panel .timeline-content {
+.timeline .timeline-panel .timeline-content,.timeline-endtime {
 	margin: 10px 0;
 }
 

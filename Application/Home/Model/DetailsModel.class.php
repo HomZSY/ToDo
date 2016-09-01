@@ -13,10 +13,10 @@ class DetailsModel extends BaseModel {
                 'd.user_id' => ss_user_id()
             ))
             ->field('d.id,d.title,d.content,d.user_id,d.level_id,d.is_finished,d.create_time,d.do_time,d.due_to_time,d.status,l.name')
-            ->page($p ? $p : 1 , C('INDEX_ARTICLE_NUM'))
+//          ->page($p ? $p : 1 , C('INDEX_ARTICLE_NUM'))
             ->order('d.create_time desc')
             ->select();
-        foreach($details as &$v){
+        foreach($details as $v){
             $v['create_time'] = date('Y-m-d H:i:s' , $v['create_time']);
             $v['do_time'] = date('Y-m-d H:i:s' , $v['do_time']);
             $v['due_to_time'] = date('Y-m-d H:i:s' , $v['due_to_time']);
@@ -124,38 +124,44 @@ class DetailsModel extends BaseModel {
         }
         return $detail;
     }
-    // 添加
-    public function addEvent($title, $category_id, $content, $level_id, $create_time, $do_time){
-        if($title&&$content){
-            $data['user_id'] = ss_user_id();
-            $data['title'] = $title;
-            $data['category_id'] = $category_id;
-            $data['content'] = $content;
-            $data['create_time'] = strtotime( $create_time );
-            $data['do_time'] = strtotime( $do_time );
-            $data['status'] = 1;
-            $data['level_id'] = $level_id?$level_id:3;
-            $data['is_finished'] = 0;
-            $this->add($data);
-            return true;
-        }
-        else return false;
+	
+	
+    // 添加事件 zsy
+    public function addEvent($id, $title, $content, $level_id, $create_time, $due_to_time){
+    	if (!$id) {
+    		if ($title && $content && $due_to_time && $level_id) {
+	            $data['user_id'] = ss_user_id();
+	            $data['title'] = $title;
+	            $data['content'] = $content;
+	            $data['create_time'] = $create_time;
+	            $data['due_to_time'] = strtotime( $due_to_time );
+	            $data['level_id'] = $level_id ? $level_id : 3;
+	            $data['is_finished'] = 0;
+	            $data['status'] = 1;
+	            $this->add($data);
+	            return true;
+	        }else {
+	        	return false;
+	        }
+    	} else {
+    		if($title && $content && $due_to_time && $level_id){
+	            $data['title'] = $title;
+	            $data['content'] = $content;
+	            $data['level_id'] = $level_id;
+	            $data['due_to_time'] = strtotime( $due_to_time );
+	            $data['create_time'] = $create_time;
+	            $data['status'] = 1;
+	            $this->where(array('id'=>$id,'user_id' => ss_user_id()))->save($data);
+	            return true;
+	        } else {
+	        	return false;
+			}
+    	}
+        
     }
-    //更新
-    public function updateEvent($id, $title, $category_id, $content, $level_id, $create_time, $do_time){
-        if( $id && $title && $category_id && $content && $level_id ){
-            $data['title'] = $title;
-            $data['category_id'] = $category_id;
-            $data['content'] = $content;
-            $data['level_id'] = $level_id;
-            $data['do_time'] = strtotime($do_time);
-            $data['create_time'] = strtotime($create_time);
-            $data['status'] = 1;
-            $this->where(array('id'=>$id,'user_id' => ss_user_id()))->save($data);
-            return true;
-        }
-        else return false;
-    }
+	
+	
+   
     //根据时间获取内容及分页处理
     public function get_details_time($start_time, $end_time, $do_start_time, $do_end_time, $category_id, $p){
         if(!$start_time || !$end_time) {

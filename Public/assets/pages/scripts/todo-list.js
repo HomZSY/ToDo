@@ -4,18 +4,38 @@ var egg_img = {
 	'green' : '-144px',
 	'blue' : '61px'
 }
+var color_level = {
+	'red': '1',
+	'orange' : '2',
+	'green' : '3',
+	'blue' : '4'
+}
 var DoList = function() {
-		var bind = function() {
-			$('ul.timeline').on('click','.click',function(){
-				editList($(this));
-			})
-			$('ul.timeline').on('click','i',function(){
-				saveList($(this));
-			})
-			$('ul.timeline').on('click','.img',function(){
-				$(this).css('background-position-y',0);
-			})
-		}
+	var title1='',content1='',endTime1='';
+	var bind = function() {
+		$('ul.timeline').on('click','.click',function(){
+			editList($(this));
+		})
+		$('ul.timeline').on('click','i',function(){
+			saveList($(this));
+		})
+		$('ul.timeline').on('click','.img',function(){
+			$(this).css('background-position-y','78px');
+			$.ajax({
+				type:"post",
+				url:$.U("List/ajax_finish_event"),
+				async:true,
+				data: {
+					is_finished: 1
+				},
+				success: function(r) {
+					if(r.status){
+						alert(r.info);
+					}
+				}
+			});
+		})
+	}
   /*  var loading = function(){
         var $loading = $(".loading");
         var $list_main = $(".list-main");
@@ -29,29 +49,9 @@ var DoList = function() {
             $list_main.show();
             $page.show();
         });
-    }
-    var do_egg_img = function(){
-        var color = ['', 'red', 'orange', 'blue', 'green'];
-        $(".list-main .list-pic").each(function(){
-            var is_finished = $(this).attr('data-finish');
-            var level_id = $(this).attr('data-level');
-            if(is_finished == 0) {
-                $(this).css({
-                    "background":'url('+_PUBLIC_+'/assets/pages/img/list/'+color[level_id]+'.png) no-repeat',
-                    "background-size" : 'contain',
-                    "marginLeft" : '10px'
-                });
-            }else {
-                $(this).css({
-                    "background":'url('+_PUBLIC_+'/assets/pages/img/list/'+color[level_id]+'-egg.png) no-repeat',
-                    "background-size" : 'contain',
-                    "marginLeft" : '10px'
-                });
-            }
-        });
     }*/
    /* 今日的时间  */
-		var defaultTime = function(){
+	var defaultTime = function(){
         Date.prototype.Format = function(fmt){
             var o = {
                 "M+" : this.getMonth()+1,                 //月份
@@ -71,7 +71,44 @@ var DoList = function() {
         }
         return (new Date()).Format("yyyy-M-d h:m:s");
     }
-		/* 下一个蛋 发生的事件  */
+	/* 事件列表  */
+	var eventList = function() {
+		$.ajax({
+			type: "get",
+			url: $.U("List/ajax_get_list"),
+			async: true,
+			datatype: "json",
+			success: function(r) {
+				if(r.status){
+					if(r.data.length > 0){
+						var li_list = [];
+						$(r.data).each(function(i,o){
+							var img_x = egg_img[o.name];
+    						var img_y = o.is_finished ? '78px' : 0;
+							if (i%2 == 0) {
+								li_list.push('<li data-id="'+o.id+'">'
+									+'<div class="timeline-badge"><span class="img" style="background-position: '+img_x+' '+img_y+';"></span></div><div class="timeline-panel"><div class="click"></div><div class="form">'
+									+'<p class="timeline-title">标题：'+o.title+'</p>'
+		    					    +'<p class="timeline-content">内容；'+o.content+'</p>'
+		    					    +'<p class="timeline-endtime">预计孵化时间：'+o.due_to_time+'</p>'
+									+'</div></div></li>');
+							} else {
+								li_list.push('<li class="right" data-id="'+o.id+'">'
+									+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form">'
+									+'<p class="timeline-title">标题：'+o.title+'</p>'
+		    					    +'<p class="timeline-content">内容；'+o.content+'</p>'
+		    					    +'<p class="timeline-endtime">预计孵化时间：'+o.due_to_time+'</p>'
+									+'</div></div></li>');
+							}
+				    		$('ul.timeline').html(li_list);
+						});
+					}
+					
+				}
+			}
+		});
+	}
+	/* 下一个蛋 发生的事件  */
     var addList = function() {
         $(".list-title .click-picture").on('click', function(){
             $(this).css({background: 'url('+_PUBLIC_+'/assets/pages/img/list/hen1.png) no-repeat', backgroundSize: 'contain'});
@@ -81,10 +118,10 @@ var DoList = function() {
             	var li_list = '';
             	if ($('ul.timeline li:first').attr('class')) { //表面第一个li在时间轴右边
             		li_list = '<li>'
-							+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
+							+'<div class="timeline-badge"><span></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	} else {
             		li_list = '<li class="right">'
-							+'<div class="timeline-badge"><span class="img"></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
+							+'<div class="timeline-badge"><span></span></div><div class="timeline-panel"><div class="click"></div><div class="form"></div></div></li>';
             	}
             	$('.list-centent .timeline').prepend(li_list);
             	$(this).stop().hide().css('top','-100px');
@@ -96,20 +133,27 @@ var DoList = function() {
     }
     /* 编辑具体事件内容  */
     var editList = function(obj) {
+    	var reg = /[\u4E00-\u9FA5]+(：)/g; //找到冒号之前的内容
+    	console.log(obj.next().html())
+    	if(obj.next().html()){
+    		title1 = obj.next().children().eq(0).html().replace(reg,'');
+	    	content1 = obj.next().children().eq(1).html().replace(reg,'');
+	    	endTime1 = obj.next().children().eq(2).html().replace(reg,'');
+    	}
     	obj.parent().parent().animate({
     		height: '340px'
     	},1000);
     	obj.parent().animate({
     		height: '300px'
     	},1000,function(){
-    		var list_input = '<input type="text" name="title" placeholder="标题" />'
-    										+'<textarea name="content" placeholder="内容"></textarea>'
-    										+'<input type="text" name="endtime" placeholder="孵蛋时间" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
-    										+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
-    										+'<i class="red"></i>'
-    										+'<i class="orange"></i>'
-    										+'<i class="green"></i>'
-    										+'<i class="blue"></i></p>';
+    		var list_input = '<input type="text" name="title" placeholder="标题" value="'+title1+'"/>'
+								+'<textarea name="content" placeholder="内容">'+content1+'</textarea>'
+								+'<input type="text" name="endtime" placeholder="孵蛋时间" value="'+endTime1+'" onfocus="WdatePicker({dateFmt:\'yyyy-M-d H:mm:ss\'})"/>'
+								+'<p class="tips"><span>点击右侧的蛋即可保存<br>从红到蓝表示事情紧急程度降低</span>'
+								+'<i class="red"></i>'
+								+'<i class="orange"></i>'
+								+'<i class="green"></i>'
+								+'<i class="blue"></i></p>';
     		obj.next('.form').html(list_input);
     	});
     }
@@ -117,43 +161,51 @@ var DoList = function() {
     var saveList = function(obj) {
     	var color = obj.attr('class');
     	var img_x = egg_img[color];
-    	var img_y = '-4px';
-//  	var img_y = '-84px';
-			var name = obj.parent().prevAll().eq(2).val();
-			var content = obj.parent().prevAll().eq(1).val();
-			var endTime = obj.parent().prevAll().eq(0).val();
-			if(!name || !content || !endtime){
-				alert('温馨提示：所有的空格都要填上内容哦~ o(*￣▽￣*)o');
-				return false;
-			}
-			$.ajax({
-				type: "post",
-				url: $.U("List/ajax_add_list"),
-				async:true,
-				data: {
-					name: name,
-					content: content,
-					endTime: endTime
-				},
-				datatype: 'json',
-				success: function() {
+    	var img_y = '0';		
+		var panel = obj.closest('.timeline-panel');
+		var title = obj.parent().prevAll().eq(2).val();
+		var content = obj.parent().prevAll().eq(1).val();
+		var endTime = obj.parent().prevAll().eq(0).val();
+		if (!title || !content || !endTime) {
+			alert('温馨提示：所有的空格都要填上内容哦~ o(*￣▽￣*)o');
+			return false;
+		}
+		$.ajax({
+			type: "post",
+			url: $.U("List/ajax_add_list"),
+			async:true,
+			data: {
+				id: obj.closest('li').attr('data-id'),
+				title: title,
+				content: content,
+				endTime: endTime,
+				level_id: color_level[color]
+			},
+			datatype: 'json',
+			success: function(r) {
+				if(r.status){
 					var time = obj.closest('.timeline-panel');
-		    	obj.closest('li').animate({
-		    		height: '120px'
-		    	},1000);
-		    	panel.animate({
-		    		height: '80px'
-		    	},1000,function(){
-		    		var img = panel.prev('.timeline-badge').find('.img');
-		    		console.log(panel,img);
-		    		img.show();
-		    		img.css('background-position-x',img_x);
-		    		img.css('background-position-y',img_y);
-		    		var list_show = '';
-		    		obj.parent().parent().html(list_show);
-		    	});
+			    	obj.closest('li').animate({
+			    		height: '120px'
+			    	},1000);
+			    	panel.animate({
+			    		height: '80px'
+			    	},1000,function(){
+			    		var img = panel.prev('.timeline-badge').find('span');
+			    		img.addClass('img');
+			    		img.css('background-position-x',img_x);
+			    		img.css('background-position-y',img_y);
+			    		var list_show = '<p class="timeline-title">标题：'+title+'</p>'
+			    					   +'<p class="timeline-content">内容；'+content+'</p>'
+			    					   +'<p class="timeline-endtime">预计孵化时间：'+endTime+'</p>';
+			    		obj.parent().parent().html(list_show);
+			    		alert(r.info);
+			    	});
+				} else {
+					alert(r.info);
 				}
-			});
+			}
+		});
 			
     }
     /*var doSelect = function (data , selected){
@@ -669,7 +721,8 @@ var DoList = function() {
     }*/
     return {
         init: function () {
-        		bind();
+        	eventList();
+        	bind();
 //          categorySearch();
 //          addSelect();
 //          start();

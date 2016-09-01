@@ -31,7 +31,7 @@ var DoDetail = function(){
             $(".modal-main").hide();
         });
     }
-    var addEvent=function(){
+    var addEvent = function(){
         $('.modal-box-btn').on('click','.modal-btn-confirm',function(){
             var $message = $('.modal-box-message');
             var title = $.trim($message.find('#title').val());

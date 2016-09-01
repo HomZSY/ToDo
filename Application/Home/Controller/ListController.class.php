@@ -25,10 +25,37 @@ class ListController extends BaseController {
         $this->display();
     }
 	
-	public function ajax_add_list() {
-		
+	public function ajax_get_list() {
+		$json = array('status'=>false,'info'=>'','data'=>'','ajax_page'=>'');
+        $md = D("Details");
+        $details = $md->get_details();
+//      $all_count = $md->get_all_count();
+//      $pages = $md->articlePage( $all_count , C('INDEX_ARTICLE_NUM') );
+        $json['status'] = true;
+        $json['info'] = '获取成功';
+        $json['data'] = $details;
+//      $json['ajax_page'] = $pages;
+        $this->ajaxReturn($json);
 	}
-	
+	/* 包括新增和编辑  */
+	public function ajax_add_list() {
+		$json = array('status' => false, 'info' => '', 'data' => '');
+		$id = I('id');
+        $title = I('title');
+        $content = I('content');
+        $level_id = I('level_id');
+        $create_time = time();
+        $due_do_time = I('endTime');
+        $md = D('Details');
+        $json['status'] = $md->addEvent($id,$title,$content,$level_id,$create_time,$due_do_time);
+        if ($json['status']) {
+            $json['info'] = "下蛋成功，等待孵化`(*∩_∩*)′";
+        } else {
+        	$json['info'] = "很遗憾，下蛋失败(>_<) 请再试试吧~";
+        }
+        $this->ajaxReturn($json);
+	}
+	/*
     public function ajax_todo_list(){
         $json = array('status'=>false,'info'=>'','data'=>'','ajax_page'=>'');
         $md = D("Details");
@@ -193,7 +220,7 @@ class ListController extends BaseController {
         $json['status'] = true;
         $json['ajax_page'] = $pages;
         $this->ajaxReturn($json);
-    }
+    }*/
     /*
      * @author sameen
      * */
